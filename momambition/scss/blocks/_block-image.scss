@@ -1,0 +1,25 @@
+$images: (
+  'primary',
+  'secondary',
+  'light'
+);
+
+$styles: (
+  'portrait',
+  'landscape',
+  'square'
+);
+
+.wp-block-image {
+  @each $color in $images {
+    &.is-style-ma-image-single-#{$color} {
+      @include ma-image(var(--#{$color}));
+    }
+  }
+
+  @each $dimension in $styles {
+    &.is-style-image-single-#{$dimension} {
+      @include image-style($dimension);
+    }
+  }
+}

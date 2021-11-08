@@ -1,0 +1,14 @@
+.block-hero {
+  &::after {
+    background: transparent url(img/panter.png) no-repeat scroll center center / contain;
+    bottom: calc(-11.875rem / 3);
+    content: '';
+    height: 11.875rem;
+    min-height: 1px;
+    position: absolute;
+    right: 0;
+    width: 11.125rem;
+    z-index: 3;
+  }
+  
+}

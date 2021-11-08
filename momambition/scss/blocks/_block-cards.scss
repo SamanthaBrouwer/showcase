@@ -1,0 +1,64 @@
+.block-cards {
+  .wp-block-column {
+    background: transparent;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    
+    .wp-block-image {
+      margin: 0 0 $spacer;
+      position: relative;
+
+      &::after {
+        border: 2px solid var(--secondary);
+        bottom: $spacer * 0.5;
+        content: '';
+        left: $spacer * 0.5;
+        position: absolute;
+        right: $spacer * 0.5;
+        top: -$spacer * 0.5;
+      }
+
+      ~ * {
+        background: var(--card-bg-color);
+        margin-bottom: 0;
+        padding: 0 $spacer $spacer * 0.5;
+        position: relative;
+        z-index: 1;
+
+        &:last-child {
+          padding-bottom: $spacer;
+          padding-top: $spacer;
+
+          &.wp-block-buttons {
+            z-index: 0;
+
+            &::after {
+              background: var(--card-bg-color);
+              content: '';
+              position: absolute;
+              bottom: 100%;
+              left: 0;
+              right: 0;
+              height: 100%;
+              z-index: -1;
+            }
+          }
+        }
+      }
+
+      + * {
+        padding-top: $spacer;
+      }
+    }
+
+    h2,
+    h3,
+    h4 {
+      a {
+        color: var(--primary);
+        display: block;
+      }
+    }
+  }
+}

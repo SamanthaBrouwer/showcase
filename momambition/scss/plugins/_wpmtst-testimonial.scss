@@ -1,0 +1,54 @@
+.strong-view {
+  .testimonial {
+    &-inner {
+      text-align: center;
+    }
+  
+    &-content {
+      p {
+        &:first-of-type::before {
+          content: '"';
+        }
+  
+        &:last-of-type::after {
+          content: '"';
+        }
+      }
+    }
+  
+    &-name {
+      display: inline-block;
+
+      &::before {
+        content: '- ';
+      }
+    }
+  
+    &-company {
+      display: inline-block;
+      padding-left: $spacer * 0.5;
+  
+      &::before {
+        content: '(';
+      }
+  
+      &::after {
+        content: ')';
+      }
+    }
+  }
+
+  &.pager-style-buttons {
+    .wpmslider-pager-link {
+      &::before {
+        background: var(--light);
+        color: var(--light);
+      }
+
+      &:hover::before {
+        background: var(--primary);
+        color: var(--primary);
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+// Full width backgrounds
+.entry-content > .wp-block-group.has-background,
+.ld-tab-content.ld-visible .wp-block-group.has-background {
+  --over-height: 300px;
+
+  @include full-width-background;
+  
+  margin-top: 0;
+  padding-bottom: $spacer * 4;
+  padding-top: $spacer * 4;
+
+  .wp-block-group.has-background {
+    padding-bottom: $spacer;
+    padding-top: $spacer;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  + .wp-block-group.has-background {
+    margin-top: -$spacer * 2.5;
+  }
+}
+
+// Gradient backgrounds
+$gradient-backgrounds: (
+  'primary-to-light': (
+    start-color: var(--primary),
+    start-position: 20.4rem,
+    end-color: var(--light),
+    end-position: 20.48rem,
+    deg: 176.5
+  ),
+  'primary-to-light-centered': (
+    start-color: var(--primary),
+    start-position: 50%,
+    end-color: var(--light),
+    end-position: 50.1%,
+    deg: 176.5
+  ),
+  'secondary-to-light': (
+    start-color: var(--secondary),
+    start-position: 12.4rem,
+    end-color: var(--light),
+    end-position: 12.48rem,
+    deg: 176.5
+  ),
+  'secondary-to-light-centered': (
+    start-color: var(--secondary),
+    start-position: 50%,
+    end-color: var(--light),
+    end-position: 50.3%,
+    deg: 176.5
+  ),
+  'light-to-primary': (
+    start-color: var(--light),
+    start-position: 7.4rem,
+    end-color: var(--primary),
+    end-position: 7.48rem,
+    deg: 176.5
+  ),
+  'primary-to-light-straight': (
+    start-color: var(--primary),
+    start-position: 80%,
+    end-color: var(--light),
+    end-position: 80%,
+    deg: 180
+  ),
+  'secondary-to-light-straight': (
+    start-color: var(--secondary),
+    start-position: 80%,
+    end-color: var(--light),
+    end-position: 80%,
+    deg: 180
+  )
+);
+
+@function get-bg-props($background, $props...) {
+  @each $prop in $props {
+    $background: map-get($background, $prop);
+  }
+  @return $background;
+}
+
+@each $background, $props in $gradient-backgrounds {
+  $start-color: get-bg-props($props, start-color);
+  $start-position: get-bg-props($props, start-position);
+  $end-color: get-bg-props($props, end-color);
+  $end-position: get-bg-props($props, end-position);
+  $deg: get-bg-props($props, deg);
+
+  .has-#{$background}-gradient-background {
+    background: linear-gradient(#{$deg}deg, $start-color $start-position, $end-color $end-position);
+
+    @if $background == 'primary-to-light' {
+      .blog &,
+      .archive &,
+      .search-results & {
+        background: linear-gradient(#{$deg}deg, $start-color 16%, $end-color 16.03%);
+      }
+    } @else if $background == 'primary-to-light-centered' {
+      @media screen and (max-width: $screen-sm-max) {
+        background: linear-gradient(#{$deg}deg, $start-color 12.4rem, $end-color 12.48rem);
+      }
+    }
+  }
+}
+
+.wp-block-group {
+  &.is-style-ma-group-panther {
+    position: relative;
+
+    &::before {
+      background-color: transparent;
+      background-image: url(img/panter.png),
+                        url(img/panter.png);
+      background-position: #{-$spacer} #{-$spacer},
+                           calc(100% + #{$spacer}) calc(100% + #{$spacer});
+      background-repeat: no-repeat;
+      background-size: 11.125rem 11.875rem;
+      content: '';
+      height: 100%;
+      left: calc(50% - 50vw);
+      position: absolute;
+      top: 0;
+      width: 100vw;
+      z-index: 0;
+    }
+
+    .wp-block-group__inner-container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.has-ccp-primary-background-color,
+.has-ccp-secondary-background-color {
+  a {
+    color: var(--light);
+  }
+}

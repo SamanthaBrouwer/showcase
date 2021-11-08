@@ -1,0 +1,9 @@
+// Easy Table of Contents Plugin
+div#ez-toc-container {
+  border-radius: 0;
+  padding: $spacer;
+
+  p.ez-toc-title {
+    font-family: var(--font-family-headings);
+  }
+}

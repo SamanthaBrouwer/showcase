@@ -1,0 +1,23 @@
+.archive,
+.search-results {
+  .page-title {
+    font-size: var(--font-size-h2);
+    margin-bottom: $spacer * 2;
+
+    span {
+      color: #fff;
+      display: block;
+      font-family: var(--font-family-headings);
+      margin-top: -$spacer * 2;
+    }
+  }
+
+  .archive-description {
+    color: #fff;
+    text-align: center;
+
+    a {
+      color: var(--light);
+    }
+  }
+}

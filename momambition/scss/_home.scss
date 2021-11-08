@@ -1,0 +1,147 @@
+// Sidebar Archive Categories
+.archive-categories {
+  .col {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+
+    .widget_text {
+      flex-basis: 100%;
+      margin-bottom: $spacer * 2;
+    }
+
+    .widget_media_image {
+      display: flex;
+      flex-basis: calc((100% / 3) - (#{$grid-gutter-width / 3} * 2));
+      flex-direction: column;
+
+      &:not(:last-child) {
+        margin-right: $grid-gutter-width;
+      }
+
+      a {
+        @include responsive-image(100%);
+
+        margin-bottom: $spacer;
+        order: 1;
+
+        &::after {
+          border: 2px solid var(--secondary);
+          bottom: $spacer * 0.5;
+          content: '';
+          left: $spacer * 0.5;
+          position: absolute;
+          right: $spacer * 0.5;
+          top: -$spacer * 0.5;
+        }
+      }
+
+      .widget-title {
+        @include btn('primary');
+
+        font-family: var(--font-family-body);
+        font-weight: var(--font-weight-body);
+        text-align: center;
+        order: 2;
+      }
+    }
+  }
+}
+
+.blog,
+.archive,
+.search-results {
+  .site-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .post,
+  .page {
+    display: flex;
+    flex: 0 1 calc(50% - #{$grid-gutter-width / 2});
+    flex-direction: column;
+    margin-bottom: $spacer * 3;
+    text-align: center;
+
+    &:nth-child(2n+2) {
+      margin-right: $grid-gutter-width;
+    }
+
+    &:first-child {
+      flex-basis: 100%;
+    }
+  }
+
+  .post {
+    &-thumbnail {
+      height: auto;
+      margin-bottom: $spacer;
+      padding-top: 133%;
+
+      img {
+        left: 0;
+        position: absolute;
+        top: 0;
+      }
+    }
+  
+    &-category {
+      color: var(--color-body);
+      font-size: 0.875rem;
+      font-weight: normal;
+
+      p {
+        margin-bottom: $spacer * 0.25;
+      }
+      
+      &-name {
+        color: var(--color-body);
+
+        &:last-of-type {
+          + .post-category-separator {
+            display: none;
+          }
+        }
+      }
+    }
+  
+    &-title {
+      font-size: var(--font-size-h3);
+
+      a {
+        color: var(--primary);
+      }
+    }
+  
+    &-meta {
+      .posted-on {
+        color: transparent;
+        font-size: 0;
+
+        a {
+          color: var(--color-body);
+          font-size: 0.75rem;
+        }
+      }
+
+      .byline {
+        display: none;
+      }
+
+      .comments-link {
+        display: none;
+      }
+    }
+  
+    &-read-more {
+      margin-right: auto;
+    }
+
+    &:first-child {
+      .post-title {
+        font-size: var(--font-size-h2);
+      }
+    }
+  }
+}

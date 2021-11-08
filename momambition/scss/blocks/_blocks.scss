@@ -1,0 +1,14 @@
+@import 'block-hero';
+@import 'block-image';
+@import 'block-gallery';
+@import 'block-heading';
+@import 'block-cards';
+
+// Default styling
+.wp-block-group {
+  .wp-block-column {
+    h2 + h2 {
+      font-size: var(--font-size-h2);
+    }
+  }
+}

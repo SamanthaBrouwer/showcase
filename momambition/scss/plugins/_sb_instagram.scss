@@ -1,0 +1,45 @@
+.site-footer {
+  #sb_instagram {
+    #sbi_images {
+      position: relative;
+
+      &::before,
+      &::after {
+        background: transparent url(img/panter.png) no-repeat scroll center center / contain;
+        content: '';
+        height: 11.875rem;
+        min-height: 1px;
+        position: absolute;
+        width: 11.125rem;
+        z-index: 0;
+      }
+
+      &::before {
+        bottom: -$spacer * 2;
+        left: -$spacer * 4;
+      }
+
+      &::after {
+        top: -$spacer * 2;
+        right: -$spacer * 3;
+      }
+
+      .sbi_item {
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: $screen-xs-max) {
+          width: 33% !important;
+
+          &:nth-child(2n) {
+            display: none;
+          }
+        }
+
+        .sbi_photo_wrap {
+          border: 2px solid var(--light);
+        }
+      }
+    }
+  }
+}

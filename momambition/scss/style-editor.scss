@@ -1,0 +1,60 @@
+@import 'variables';
+@import 'mixins';
+
+@import 'backgrounds';
+
+@import 'blocks/blocks';
+
+@import 'plugins/ultp';
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,500;0,700;0,900;1,300&display=swap');
+
+@font-face {
+  font-family: 'Gistesy';
+  src: url('fonts/Gistesy400.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$editor-sidebar: 300px;
+
+.wp-block-group {
+  &.block-hero {
+    *::after {
+      display: none;
+    }
+  }
+  
+  &.block-cards {
+    .wp-block-column {
+      h2 {
+        ~ * {
+          &:not(:last-child) {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  &.is-style-ma-group-panther::before {
+    left: calc((50% + (#{$editor-sidebar} / 2)) - 50vw);
+    width: calc(100vw - #{$editor-sidebar});
+  }
+}
+
+$styles: (
+  'portrait',
+  'landscape',
+  'square'
+);
+
+.wp-block-image {
+  @each $dimension in $styles {
+    &.is-style-image-single-#{$dimension} {
+      .components-resizable-box__container {
+        position: static !important;
+      }
+    }
+  }
+}

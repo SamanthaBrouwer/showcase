@@ -1,0 +1,16 @@
+$galleries: (
+  ('right', 'primary'),
+  ('right', 'secondary'),
+  ('right', 'light'),
+  ('left', 'primary'),
+  ('left', 'secondary'),
+  ('left', 'light')
+);
+
+.wp-block-gallery {
+  @each $position, $color in $galleries {
+    &.is-style-ma-image-multiple-#{$position}-#{$color} {
+      @include ma-gallery(var(--#{$color}), $position);
+    }
+  }
+}
