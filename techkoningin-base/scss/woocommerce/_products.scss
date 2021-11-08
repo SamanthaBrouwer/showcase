@@ -1,0 +1,20 @@
+.woocommerce {
+  ul.products {
+    li.product {
+      display: flex;
+      flex-direction: column;
+
+      .woocommerce-loop-product__title {
+        word-break: break-word;
+      }
+
+      .price {
+        color: var(--wc-price);
+      }
+
+      .button {
+        margin-top: auto;
+      }
+    }
+  }
+}

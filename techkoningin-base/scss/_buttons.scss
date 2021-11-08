@@ -1,0 +1,121 @@
+/*
+  ** BUTTONS **
+  Because buttons have different colors for every client, 
+  buttons are never named after their colors.
+
+  Buttons styles are written as mixins, so they don't clutter up the
+  css file. You can include them on all WordPress' own buttons.
+
+  Colors can be adjusted in _variables.scss.
+*/
+
+@mixin btn {
+  border-radius: var(--button-border-radius);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  line-height: var(--button-line-height);
+  padding: 0 var(--button-padding-x);
+  text-transform: var(--button-text-transform);
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    text-decoration: none;
+  }
+}
+
+.btn {
+  @include btn;
+}
+
+@mixin btn-primary {
+  background-color: var(--button-primary-bg-color);
+  border: 1px solid var(--button-primary-border-color);
+  color: var(--button-primary-color);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: var(--button-primary-bg-color-hover);
+    border-color: var(--button-primary-border-color-hover);
+    color: var(--button-primary-color-hover);
+  }
+}
+
+.btn-primary {
+  @include btn-primary;
+}
+
+@mixin btn-secondary {
+  background-color: var(--button-secondary-bg-color);
+  border: 1px solid var(--button-secondary-border-color);
+  color: var(--button-secondary-color);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: var(--button-secondary-bg-color-hover);
+    border-color: var(--button-secondary-border-color-hover);
+    color: var(--button-secondary-color-hover);
+  }
+}
+
+.btn-secondary {
+  @include btn-secondary;
+}
+
+.btn-success {
+  background-color: var(--success);
+  border-color: var(--success);
+}
+
+%btn-sm {
+  padding: 0 calc(var(--button-padding-x) * 0.5);
+  line-height: calc(var(--button-line-height) / 1.7);
+}
+
+%btn-lg {
+  line-height: calc(var(--button-line-height) * 1.5);
+  padding: 0 calc(var(--button-padding-x) * 2);
+}
+
+.btn-open {
+  background-color: transparent;
+  border: 1px solid var(--button-primary-border-color);
+  color: var(--button-primary-bg-color);
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    background-color: var(--button-primary-bg-color-hover);
+    border-color: var(--button-primary-border-color-hover);
+    color: var(--button-primary-color-hover);
+  }
+}
+
+.wp-block-button__link {
+  @include btn;
+
+  &:not(.has-background) {
+    @include btn-primary;
+  }
+}
+
+.wp-block-buttons {
+  display: flex;
+
+  &.alignleft {
+    justify-content: flex-start;
+  }
+
+  &.aligncenter {
+    justify-content: center;
+  }
+
+  &.alignright {
+    justify-content: flex-end;
+  }
+}

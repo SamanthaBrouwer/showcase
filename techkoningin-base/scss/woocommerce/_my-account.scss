@@ -1,0 +1,35 @@
+.woocommerce-MyAccount-content {
+  padding: 0 $spacer;
+
+  .woocommerce-address-fields {
+    &__field-wrapper {
+      padding: 0 #{$grid-gutter-width / 2};
+    }
+  }
+
+  .woocommerce-address-fields,
+  .woocommerce-EditAccountForm {
+    > p:last-of-type {
+      display: flex;
+      flex-direction: column;
+      
+      button[type="submit"] {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .woocommerce-Addresses {
+    margin-left: -$grid-gutter-width / 2;
+    margin-right: -$grid-gutter-width / 2;
+  }
+
+  .woocommerce-EditAccountForm {
+    padding: 0 #{$grid-gutter-width / 2};
+    > p:last-of-type {
+      button[type="submit"] {
+        margin-right: -$spacer;
+      }
+    }
+  }
+}

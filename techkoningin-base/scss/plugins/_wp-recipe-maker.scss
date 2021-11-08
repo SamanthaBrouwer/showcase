@@ -1,0 +1,95 @@
+.wprm-recipe-link {
+  &.wprm-recipe-link-button,
+  &.wprm-recipe-link-inline-button,
+  &.wprm-recipe-link-wide-button {
+    background-color: var(--button-primary-bg-color) !important;
+    border: 1px solid var(--button-primary-border-color) !important;
+    border-radius: var(--button-border-radius) !important;
+    color: var(--button-primary-color) !important;
+    font-size: var(--button-font-size) !important;
+    font-weight: var(--button-font-weight) !important;
+    letter-spacing: var(--button-letter-spacing) !important;
+    line-height: var(--button-line-height) !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    text-transform: var(--button-text-transform) !important;
+    transition: all 0.2s ease-in-out !important;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--button-primary-bg-color-hover) !important;
+      border-color: var(--button-primary-border-color-hover) !important;
+      color: var(--button-primary-color-hover) !important;
+      text-decoration: none !important;
+    }
+  }
+}
+
+.wprm-recipe-container {
+  .wprm-recipe-template-chic {
+    background-color: var(--wprm-background-color);
+    border-color: var(--wprm-border-color);
+    color: var(--wprm-text-color);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    padding: $spacer;
+
+    .wprm-recipe-name, 
+    .wprm-recipe-header,
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--wprm-heading-colors);
+      font-family: var(--font-family-headings);
+      font-style: var(--font-style-headings);
+      font-weight: var(--font-weight-headings);
+      letter-spacing: var(--letter-spacing-headings);
+      line-height: var(--line-height-headings);
+      text-transform: var(--text-transform-headings) !important;
+    }
+
+    a {
+      color: var(--color-link);
+
+      &:hover {
+        color: var(--color-link-hover);
+      }
+    }
+
+    .wprm-block-text-normal {
+      font-weight: var(--font-weight-body);
+      text-transform: var(--text-transform-body);
+    }
+
+    .wprm-block-text-uppercase-faded {
+      color: var(--wprm-heading-colors);
+      font-family: var(--font-family-headings);
+      font-style: var(--font-style-headings);
+      font-weight: var(--font-weight-headings);
+      opacity: 1;
+      text-transform: var(--text-transform-headings) !important;
+    }
+
+    .wprm-decoration-line {
+      border-color: var(--wprm-border-color) !important;
+    }
+
+    .wprm-recipe-icon > svg > g > g {
+      fill: var(--wprm-icon-color);
+    }
+
+    .wprm-recipe-pin-icon,
+    .wprm-recipe-print-icon {
+      > svg > g > g {
+        fill: var(--button-primary-color);
+      }
+    }
+
+    .wprm-recipe-ingredients-container {
+      .wprm-recipe-ingredient-notes-faded {
+        color: var(--wprm-text-faded-color);
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+div [class^="bkap-"] {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    @extend .form-control;
+    width: 100%;
+  }
+}

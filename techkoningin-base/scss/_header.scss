@@ -1,0 +1,98 @@
+/**
+  HEADER
+  The header (for now) contains only a logo and the primary navigation. Depending 
+  on size, about 6 items fit in the navigation.
+
+  The navigation will be shown as a hamburger on screen sizes smaller than 992px. 
+  This can easily be adjusted in header.php, just change the 'navbar-expand-lg' 
+  class to a larger or smaller class.
+  
+  Colors can be changed by adjusting the vars under // Header in _variables.scss
+*/
+
+.site-header {
+  background: var(--header-bg-color);
+  border-bottom: var(--header-border-bottom);
+
+  .navbar {
+    &-brand {
+      margin-right: $spacer * 4;
+      max-width: var(--header-logo-max-width);
+      padding-bottom: $spacer;
+      padding-top: $spacer;
+      width: 100%;
+    }
+
+    &-nav {
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+
+      .menu-item {
+        @media (max-width: $screen-md-min) {
+          text-align: center;
+        }
+
+        &.menu-item-has-children:hover > .nav-link + .dropdown-menu {
+          display: block;
+
+          @media (max-width: $screen-md-min) {
+            margin-left: 0;
+          }
+        }
+      }
+
+      .nav-link {
+        color: var(--header-link-color);
+        font-size: var(--header-link-font-size);
+        letter-spacing: var(--letter-spacing-body);
+        transition: color 0.2s ease-in-out;
+        @media (min-width: $screen-lg-min) {
+          padding-left: $spacer;
+          padding-right: $spacer;
+        }
+
+        &:hover {
+          color: var(--header-link-hover-color);
+        }
+      }
+    }
+
+    &-toggler-icon {
+      color: var(--navbar-toggler-icon-color);
+      line-height: 1.5;
+    }
+  }
+}
+
+.page-sub-header {
+  background-position: center;
+  background-size: cover;
+  border-bottom: var(--header-border-bottom);
+  padding: #{$spacer * 2} 0;
+  position: relative;
+
+  &::after {
+    background: var(--light);
+    bottom: 0;
+    content: '';
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 0;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .search-form {
+    margin-bottom: $spacer;
+    .form-control {
+      border: 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+$sizes: (
+  25: 25%, 
+  50: 50%, 
+  75: 75%, 
+  100: 100%
+);
+
+@each $name, $size in $sizes {
+  .mw-#{$name} {
+    max-width: $size;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  @each $name, $size in $sizes {
+    .mw-lg-#{$name} {
+      max-width: $size;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  @each $name, $size in $sizes {
+    .mw-md-#{$name} {
+      max-width: $size;
+    }
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  @each $name, $size in $sizes {
+    .mw-lg-#{$name} {
+      max-width: $size;
+    }
+  }
+}
+
+@media (min-width: $screen-xl-min) {
+  @each $name, $size in $sizes {
+    .mw-xl-#{$name} {
+      max-width: $size;
+    }
+  }
+}

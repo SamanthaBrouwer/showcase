@@ -1,0 +1,35 @@
+/** 
+  ACCORDION PLUGIN
+
+  For accordions, we use the Accordion Blocks plugin
+  https://wordpress.org/plugins/accordion-blocks/
+
+*/
+
+.c-accordion {
+  // The accordion item container
+  &__item {
+    // is-open is added to open accordion items
+    &.is-open {} 
+
+    // is-read is added to accordion items that have been opened at least once
+    &.is-read {} 
+  } 
+  
+  // An accordion item title
+  &__title {
+    // To modify the style when hovering over an accordion item title
+    &:hover {}
+    
+    // To modify the style when an accordion item title currently has broswer focus
+    &:focus {}
+
+    // An accordion item title that is using a `<button>` tag
+    &--button {
+      @extend .btn;
+    } 
+  } 
+  
+  // An accordion item content container
+  &__content {}
+}

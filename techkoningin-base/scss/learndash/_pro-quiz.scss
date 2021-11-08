@@ -1,0 +1,49 @@
+.wpProQuiz_quiz {
+  margin-top: $spacer * 2;
+}
+
+.wpProQuiz_content {
+  .wpProQuiz_button, 
+  .wpProQuiz_button2, 
+  .wpProQuiz_certificate a.btn-blue {
+    @include btn;
+    @include btn-primary;
+  }
+
+  .wpProQuiz_questionListItem {
+    label {
+      border-color: var(--light);
+      border-radius: $border-radius;
+
+      &.is-selected,
+      &:focus-within {
+        border-color: var(--ld-primary);
+      }
+
+      input.wpProQuiz_questionInput[type='text'] {
+        @extend .form-control;
+      }
+    }
+
+    &.wpProQuiz_answerCorrect {
+      .wpProQuiz_sortable,
+      label {
+        background: var(--ld-primary);
+      }
+    }
+  }
+
+  .wpProQuiz_response {
+    background: var(--light);
+    border-radius: $border-radius;
+    color: var(--color-body);
+  }
+}
+
+.wpProQuiz_graded_points,
+.wpProQuiz_points {
+  background-color: var(--light);
+  border-radius: $border-radius;
+  border: 0;
+  color: var(--color-body);
+}

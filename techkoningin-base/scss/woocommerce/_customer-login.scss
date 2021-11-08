@@ -1,0 +1,33 @@
+.woocommerce {
+  #customer_login {
+    .form-wrapper {
+      background: var(--light);
+      margin-bottom: $spacer * 2;
+      padding: $spacer;
+
+      form.login, 
+      form.register {
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        padding: 0 $spacer;
+      }
+
+      .woocommerce-form-register,
+      .woocommerce-form-login {
+        display: flex;
+        flex-direction: column;
+        &__submit {
+          float: none;
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+
+      .woocommerce-privacy-policy-text {
+        margin-left: -$grid-gutter-width / 2;
+        margin-right: -$grid-gutter-width / 2;
+      }
+    }
+  }
+}

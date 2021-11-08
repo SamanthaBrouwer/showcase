@@ -1,0 +1,10 @@
+<div class="post-share">
+  <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode( get_permalink() ); ?>&text=<?php echo urlencode( get_the_title() ); ?>" target="_blank" title="<?php esc_attr_e( 'Tweet this on Twitter', 'techkoningin-child' ); ?>" class="twitter"><i class="fab fa-twitter"></i></a>
+  <a href="https://facebook.com/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>&t=<?php echo urlencode( get_the_title() ); ?>" target="_blank" title="<?php esc_attr_e( 'Share this on Facebook', 'techkoningin-child' ); ?>" class="facebook"><i class="fab fa-facebook-f"></i></a>
+  <?php $pinterestimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' ); ?>
+  <a href="https://pinterest.com/pin/create/button/?url=<?php echo urlencode(get_permalink($post->ID)); ?>&media=<?php echo $pinterestimage[0]; ?>&description=<?php the_title(); ?>" data-pin-custom="true" target="_blank" count-layout="vertical" title="<?php esc_attr_e( 'Pin it to Pinterest', 'techkoningin-child' ); ?>" class="pinterest pin-it-button"><i class="fab fa-pinterest"></i></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo urlencode( get_permalink() ); ?>&title=<?php echo urlencode( get_the_title() ); ?>" target="_blank"><i class="fab fa-linkedin"></i></a>  
+  <a href="https://wa.me/?text=<?php echo urlencode( get_permalink() ); ?>" title="<?php esc_attr_e( 'Share on WhatsApp', 'techkoningin-child' ); ?>" target="_blank"><i class="fab fa-whatsapp"></i></a>
+  <a href="mailto:?subject=<?php echo get_the_title(); ?>?&BODY=<?php echo urlencode( get_permalink() ); ?>"><i class="fas fa-envelope"></i></a>
+  <a href="javascript:window.print()" title="<?php esc_attr_e( 'Print this Page', 'techkoningin-child' ); ?>" class="print"><i class="fas fa-print"></i></a>
+</div>

@@ -1,0 +1,29 @@
+.woocommerce {
+  .woocommerce-error, 
+  .woocommerce-info, 
+  .woocommerce-message {
+    background: var(--light);
+    color: var(--color-body);
+  }
+
+  .woocommerce-error {
+    border-top-color: var(--wc-error);
+    &::before {
+      color: var(--wc-error);
+    }
+  }
+
+  .woocommerce-info {
+    border-top-color: var(--wc-info);
+    &::before {
+      color: var(--wc-info);
+    }
+  }
+
+  .woocommerce-message {
+    border-top-color: var(--wc-message);
+    &::before {
+      color: var(--wc-message);
+    }
+  }
+}

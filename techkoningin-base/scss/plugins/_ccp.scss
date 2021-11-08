@@ -1,0 +1,48 @@
+/*
+ * Custom Color Palette
+ * https://themezee.com/plugins/custom-color-palette/
+ *
+ * Copyright(C) 2018, ThemeZee.com - support@themezee.com
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * @package Custom Color Palette
+ */
+
+/* 
+ * Changes made by Techkoningin: making sure selected 
+ * colors are always visible by using !important (yikes,
+ * I'm very very sorry!!)
+ */
+
+$ccp-colors: (
+  'primary-dark',
+  'primary',
+  'primary-light',
+  'secondary-dark',
+  'secondary',
+  'secondary-light',
+  'accent',
+  'white',
+  'light-gray',
+  'dark-gray',
+  'black',
+  'red',
+  'green',
+  'blue',
+  'yellow',
+  'orange',
+  'purple',
+  'brown',
+  'pink'
+);
+
+@each $color in $ccp-colors {
+  .has-ccp-#{$color}-color {
+    color: var(--ccp-#{$color}-color) !important;
+  }
+
+  .has-ccp-#{$color}-background-color {
+    background-color: var(--ccp-#{$color}-color) !important;
+  }
+}

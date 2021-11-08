@@ -1,0 +1,40 @@
+.woocommerce {
+  table.shop_table {
+    border: 0;
+    border-radius: 0;
+    margin-right: 0;
+
+    thead,
+    tfoot {
+      background: var(--light);
+    }
+
+    tbody {
+      tr {
+        &:nth-child(2n) {
+          background: var(--primary-light);
+        }
+        &:last-child:not(.cart_item) {
+          background: var(--light);
+        }
+      }
+    }
+
+    td,
+    tr,
+    th {
+      border: 0 !important;
+      padding: #{$spacer * 0.5} #{$spacer};
+    }
+  }
+
+  a.remove {
+    color: var(--wc-error) !important;
+    padding-left: 2px;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover {
+      background: var(--wc-error);
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.woocommerce {
+  .bkap-booking-form {
+    .bkap_start_date {
+      width: auto;
+    }
+  }
+
+  #bkap-price-box {
+    #ajax_img {
+      float: none;
+    }
+  }
+
+  .ui-state-active, 
+  .ui-widget-content .ui-state-active, 
+  .ui-widget-header .ui-state-active {
+    background: var(--primary);
+  }
+}

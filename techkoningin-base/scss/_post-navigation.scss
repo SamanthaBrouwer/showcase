@@ -1,0 +1,33 @@
+.post-navigation {
+  margin: $spacer 0 $spacer * 2;
+  .nav-links {
+    display: flex;
+
+    .nav-previous,
+    .nav-next {
+      a {
+        @include btn;
+        @extend .btn-open;
+        display: flex;
+        height: 100%;
+      }
+    }
+
+    .nav-previous {
+      margin-right: $spacer * 0.5;
+      a::before {
+        content: "\2190";
+        display: inline-flex;
+        margin-right: $spacer * 0.5;
+      }
+    }
+    .nav-next {
+      margin-left: auto;
+      a::after {
+        content: "\2192";
+        display: inline-flex;
+        margin-left: $spacer * 0.5;
+      }
+    }
+  }
+}

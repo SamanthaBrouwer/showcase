@@ -1,0 +1,92 @@
+/**
+  * .block-text-image-half
+  This block displays text next to an image, 
+  but the image is displayed partly underneath the text.
+
+  Also, the button, if there is any, is displayed on the image
+*/
+
+.block-text-image-half,
+.block-text-image-half-alt {
+  position: relative;
+  .wp-block-column {
+    h2 {
+      margin-left: $spacer;
+      &:first-of-type {
+        margin-top: $spacer;
+      }
+      &:last-of-type ~ *:not(.wp-block-buttons) {
+        background: var(--light);
+        margin-bottom: 0;
+        padding: $spacer;
+        @media (min-width: $screen-sm-min) {
+          margin-right: -$spacer * 3;
+        }
+      }
+    }
+
+    .wp-block-buttons {
+      .wp-block-button__link {
+        @include button-lg;
+      }
+    }
+  }
+
+  .wp-block-image {
+    z-index: $z-index-negative;
+  }
+
+  @media (min-width: $screen-sm-min) {
+    .wp-block-column {
+      .wp-block-buttons {
+        display: flex;
+        margin-top: -$spacer * 2;
+        padding-bottom: $spacer * 0.5;
+        padding-right: $spacer;
+        position: relative;
+        width: calc(200% + #{$grid-gutter-width});
+        z-index: 2;
+      }
+    }
+
+    .wp-block-image {
+      height: 100%;
+      margin-bottom: 0;
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-left {
+      h2 {
+        margin-left: -$spacer * 3;
+      }
+      .wp-block-image {
+        margin-right: -25%;
+      }
+      .wp-block-column {
+        .wp-block-buttons {
+          left: -100%;
+          justify-content: flex-start;
+          right: 0;
+        }
+      }
+    }
+    &-right {
+      h2 {
+        margin-right: -$spacer * 3;
+      }
+      .wp-block-image {
+        margin-left: -25%;
+      }
+      .wp-block-column {
+        .wp-block-buttons {
+          left: 0;
+          justify-content: flex-end;
+          right: -100%;
+        }
+      }
+    }
+  }
+}

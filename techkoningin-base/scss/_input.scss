@@ -1,0 +1,70 @@
+/**
+  INPUT STYLING
+
+  The plugin Ultimate Addons for Gutenberg comes with their
+  own very specific styling so you can style your forms inline.
+  Nice for people who don't know any CSS, but in this case we 
+  don't want that. So we made some heavy loaded CSS to always
+  overrule these rules.
+*/
+.form-control {
+  background: var(--input-background);
+  background-clip: padding-box;
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  color: var(--input-color);
+  font-size: var(--input-font-size);
+  font-weight: var(--input-font-weight);
+  height: var(--input-height);
+  line-height: var(--input-line-height);
+  padding: var(--input-padding);
+
+  &:focus {
+    border-color: var(--input-focus-border-color);
+    box-shadow: var(--input-focus-box-shadow);
+  }
+
+  + span em {
+    font-size: 0.75rem;
+  }
+}
+
+body #page {
+  .wpcf7 {
+    input.wpcf7-form-control.wpcf7-submit {
+      @include btn;
+
+      &:not(.btn-secondary) {
+        @include btn-primary;
+      }
+
+      &.btn-secondary {
+        @include btn-secondary;
+      }
+    }
+
+    textarea,
+    input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]) {
+      @extend .form-control;
+    }
+
+    textarea {
+      height: auto;
+    }
+
+    .wpcf7-checkbox,
+    .wpcf7-radio {
+      border: 0;
+      height: auto;
+      padding: 0;
+
+      .wpcf7-list-item {
+        display: block;
+      }
+    }
+  }
+}
+
+.form-row {
+  margin-bottom: $spacer;
+}

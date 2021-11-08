@@ -1,0 +1,85 @@
+body {
+  color: var(--color-body);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  letter-spacing: var(--letter-spacing-body);
+  line-height: var(--line-height-body);
+  text-transform: var(--text-transform-body);
+}
+
+@for $i from 1 through 6 {
+  h#{$i},
+  .h#{$i},
+  h#{$i}.entry-title {
+    color: var(--color-headings);
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-h#{$i});
+    font-style: var(--font-style-headings);
+    font-weight: var(--font-weight-headings);
+    letter-spacing: var(--letter-spacing-headings);
+    line-height: var(--line-height-headings);
+    text-transform: var(--text-transform-headings);
+    word-break: break-word;
+  
+    &.has-background {
+      padding: $spacer * 0.5;
+    }
+  }
+}
+
+// Set properties for .display-1 - .display-4
+@for $i from 1 through 4 {
+  .display-#{$i} {
+    font-size: var(--font-size-display-#{$i});
+    font-weight: var(--font-weight-display);
+    text-align: center;
+  }
+}
+
+a {
+  color: var(--color-link);
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+}
+
+blockquote {
+  color: var(--gray);
+  font-size: 1.125rem;
+  padding: 0 #{$spacer * 2};
+  position: relative;
+
+  &::before,
+  &::after {
+    color: var(--light);
+    font-family: "Font Awesome 5 Free";
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 900;
+    position: absolute;
+  }
+
+  &::before {
+    content: '\f10d';
+    left: 0;
+    top: 0;
+  }
+
+  &::after {
+    bottom: $spacer * 2.5;
+    content: '\f10e';
+    right: 0;
+  }
+
+  cite {
+    color: var(--gray-light);
+    font-size: 0.875rem;
+
+    &::before {
+      content: '-';
+      padding-right: $spacer * 0.5;
+    }
+  }
+}

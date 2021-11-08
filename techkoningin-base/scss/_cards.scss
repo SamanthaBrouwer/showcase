@@ -1,0 +1,26 @@
+.card {
+  border: var(--card-border);
+  border-radius: var(--card-border-radius);
+
+  &-header {
+    background-color: var(--card-header-bg-color);
+    border-bottom: var(--card-border);
+    padding: #{$spacer * 0.75} $spacer;
+    &:first-child {
+      border-radius: var(--card-border-radius);
+    }
+  }
+
+  &-block {
+    background-color: var(--card-bg-color);
+  }
+
+  &-footer {
+    background-color: var(--card-footer-bg-color);
+    border-top: var(--card-border);
+    padding: #{$spacer * 0.75} $spacer;
+    &:last-child {
+      border-radius: var(--card-border-radius);
+    }
+  }
+}

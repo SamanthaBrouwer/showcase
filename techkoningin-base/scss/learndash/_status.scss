@@ -1,0 +1,27 @@
+.ld-status-complete {
+  background-color: var(--ld-complete);
+}
+
+.ld-breadcrumbs {
+  .ld-status {
+    &.ld-status-complete {
+      background-color: var(--ld-complete);
+    }
+    &.ld-status-progress {
+      background-color: var(--ld-in-progress);
+    }
+  }
+}
+
+.ld-status-incomplete {
+  .ld-status-icon {
+    border-color: var(--light);
+  }
+}
+
+.ld-course-status {
+  &.ld-course-status-enrolled {
+    background-color: var(--light);
+    border-radius: $border-radius;
+  }
+}

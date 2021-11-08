@@ -1,0 +1,65 @@
+.comments {
+  &-title {
+    font-size: 1.125rem;
+  }
+}
+
+.comment {
+  &-body {
+    .pull-left {
+      padding-right: 0.625rem;
+    }
+  }
+
+  &-content {
+    padding: $spacer;
+
+    a {
+      word-wrap: break-word;
+    }
+  }
+
+  &-reply {
+    display: flex;
+
+    &-link {
+      margin-left: auto;
+    }
+
+    &-title {
+      small {
+        font-size: 1rem;
+        margin-left: $spacer;
+      }
+    }
+  }
+
+  &-list {
+    padding-left: 0;
+    
+    .comment {
+      display: block;
+    }
+
+    .pingback {
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+      padding: 0.563rem 0;
+      &:first-child {
+        border: 0;
+      }
+    }
+  }
+
+  &-form {
+    input[type="text"],
+    input[type="email"],
+    input[type="url"] {
+      @extend .form-control;
+      flex: 1 1 100%;
+    }
+
+    label {
+      margin-bottom: 0;
+    }
+  }
+}

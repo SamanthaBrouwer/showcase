@@ -1,0 +1,37 @@
+/**
+  COURSE GRID
+
+  Learndash Course Grid is a plugin, so this might result in some
+  double styles. For example, button styling. Learndash' own buttons
+  are styled in learndash/_buttons.scss, but buttons specifically
+  styled within course grid can be found here.
+*/
+.ld_course_grid {
+  .btn {
+    @include btn;
+  }
+
+  .btn-primary {
+    @include btn-primary;
+  }
+
+  .thumbnail.course {
+    .ld_course_grid_price {
+      background: var(--ld-price);
+
+      &::before {
+        border-right-color: var(--dark);
+        border-top-color: var(--dark);
+      }
+
+      &.ribbon-enrolled {
+        background: var(--ld-enrolled);
+        
+        &::before {
+          border-right-color: var(--dark);
+          border-top-color: var(--dark);
+        }
+      }
+    }
+  }
+}

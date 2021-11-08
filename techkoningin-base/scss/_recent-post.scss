@@ -1,0 +1,38 @@
+/**
+  RECENT POSTS
+  Recent posts are displayed in the footer, but can be displayed 
+  anywhere as long as you use the correct markup.
+
+  <div class="recent-post">
+    <h3 class="recent-post-title"><a href="#">Title</a></h3>
+    <span class="recent-post-date">Date (optional)</span>
+    <p class="recent-post-body">Body</p>
+    <a href="#" class="recent-post-btn btn btn-primary">Button (optional)</a>
+  </div>
+*/
+
+.recent-post {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &-title,
+  &-title a {
+    color: var(--color-body);
+    font-size: 1rem;
+    font-weight: 800;
+    margin-bottom: 0;
+  }
+  &-date {
+    color: var(--gray-dark);
+    font-size: 0.75rem;
+  }
+  &-body {
+    margin-top: $spacer * 0.5;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  &-btn {
+    margin-left: auto;
+    margin-top: auto;
+  }
+}

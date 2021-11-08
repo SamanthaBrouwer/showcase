@@ -1,0 +1,11 @@
+.wp-block-separator {
+  border-top: var(--separator-border-width) solid var(--separator-color);
+
+  &.separator {
+    @each $themeColor, $i in $themeColors {
+      &-#{$themeColor} {
+        --separator-color: #{$i};
+      }
+    }
+  }
+}

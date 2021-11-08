@@ -1,0 +1,16 @@
+.sidebar {
+  h3 {
+    margin-top: $spacer * 2;
+  }
+
+  .nav {
+    > li {
+      a {
+        &:focus,
+        &:hover {
+          background: transparent;
+        }
+      }
+    }
+  }
+}

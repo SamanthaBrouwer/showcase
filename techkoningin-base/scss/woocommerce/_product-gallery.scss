@@ -1,0 +1,11 @@
+.woocommerce-product-gallery {
+  .flex-control-thumbs {
+    display: flex;
+    li {
+      width: auto;
+      &:nth-child(4n+1) {
+        clear: none;
+      }
+    }
+  }
+}

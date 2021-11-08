@@ -1,0 +1,21 @@
+.ld-progress {
+  .ld-progress-heading {
+    .ld-progress-stats {
+      .ld-progress-percentage {
+        color: var(--ld-primary);
+      }
+    }
+  }
+
+  .ld-progress-bar {
+    .ld-progress-bar-percentage {
+      background: var(--ld-primary);
+    }
+  }
+}
+
+.course_progress {
+  .sending_progress_bar {
+    background: var(--ld-primary);
+  }
+}

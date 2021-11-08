@@ -1,0 +1,53 @@
+/*!
+Theme Name: Techkoningin Base
+Theme URI: https://techkoningin.nl/
+Author: Samantha Brouwer
+Author URI: https://techkoningin.nl/
+Description:  De Techkoningin Base Wordpress Theme - Perfectly fitted for your website
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: techkoningin-base
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Tested up to: 5.4
+Tags: blog, custom-menu, featured-images, threaded-comments, translation-ready, right-sidebar, custom-background, e-commerce, theme-options, sticky-post, full-width-template
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap');
+
+// Old original theme stylesheet from old theme - need to remove asap
+@import 'depricated';
+
+@import 'variables';
+@import 'mixins';
+
+@import 'general';
+@import 'utilities';
+@import 'typography';
+
+@import 'header';
+@import 'dropdown-menu';
+@import 'footer';
+@import 'sidebar';
+
+@import 'alerts';
+@import 'blocks';
+@import 'buttons';
+@import 'cards';
+@import 'input';
+@import 'search';
+@import 'pagination';
+@import 'post-overview';
+@import 'post-navigation';
+@import 'single';
+@import 'comments';
+
+@import 'recent-post';
+
+@import 'woocommerce/woocommerce';
+@import 'learndash/learndash';
+
+@import 'plugins/accordion';
+@import 'plugins/ccp';
+@import 'plugins/wp-recipe-maker';

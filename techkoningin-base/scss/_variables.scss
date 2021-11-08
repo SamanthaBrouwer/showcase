@@ -1,0 +1,253 @@
+/**
+  This document contains only variables.
+  This is the only place where you can and should edit colors, fonts, font-sizes, etc.
+
+  Please note that we use both css variables (--) and scss variables ($). 
+  The scss variables can't be changed by the user via the wp-admin, but the css variables can (in the future ;-)).
+*/
+// Breakpoints
+$xs: 0;
+$sm: 600px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+// Media queries
+$screen-sm-min: $sm;
+$screen-md-min: $md;
+$screen-lg-min: $lg;
+$screen-xl-min: $xl;
+$screen-xxl-min: $xxl;
+
+$screen-xs-max: $screen-sm-min - 1;
+$screen-sm-max: $screen-md-min - 1;
+$screen-md-max: $screen-lg-min - 1;
+$screen-lg-max: $screen-xl-min - 1;
+$screen-xl-max: $screen-xxl-min - 1;
+
+// Container max width sizes (default = 100%)
+$container-sm: 540px !default;
+$container-md: 720px !default;
+$container-lg: 960px !default;
+$container-xl: 1140px !default;
+$container-xxl: 1140px !default;
+
+$container-custom: false !default;
+$container-fluid: false !default;
+$full-width-backgrounds: false !default;
+
+// Spacing
+$spacer: 1rem;
+
+// Bootstrap variables
+$grid-gutter-width: 30px;
+$border-radius: 0;
+
+// Typography
+$font-fallback: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+
+// Z-indexes
+$z-index-negative: -1;
+
+$themeColors: (
+  "primary": var(--primary),
+  "primary-light": var(--primary-light),
+  "secondary": var(--secondary),
+  "secondary-light": var(--secondary-light),
+  "accent": var(--accent),
+  "light": var(--light),
+  "dark": var(--dark),
+  "gray": var(--gray),
+  "gray-light": var(--gray-light),
+  "gray-dark": var(--gray-dark),
+  "white": var(--white),
+  "black": var(--black),
+  "success": var(--success),
+  "danger": var(--danger),
+  "warning": var(--warning),
+  "info": var(--info)
+);
+
+:root {
+  // Colors
+  --primary: #479FD8;
+  --primary-light: #89b0ca;
+  --secondary: #0b0b0b;
+  --secondary-light: #3d3d3d;
+  --accent: #eea2db;
+  --light: #f3f3f3;
+  --dark: #0b0b0b;
+  --gray: #6d6e75;
+  --gray-light: #c2c2c2;
+  --gray-dark: #3e3e3e;
+  --white: #fff;
+  --black: #000;
+  --success: var(--primary);
+  --danger: var(--secondary);
+  --warning: var(--secondary);
+  --info: var(--primary-light);
+
+  // Typography
+  --color-body: var(--dark);
+  --font-family-body: 'Montserrat', #{$font-fallback};
+  --font-weight-body: 400;
+  --letter-spacing-body: auto;
+  --text-transform-body: none;
+  --line-height-body: 1.5;
+
+  --color-headings: var(--dark);
+  --font-family-headings: 'Montserrat', #{$font-fallback};
+  --font-style-headings: normal;
+  --font-weight-headings: 700;
+  --letter-spacing-headings: auto;
+  --text-transform-headings: none;
+  --line-height-headings: 1.2;
+
+  --color-link: var(--primary);
+  --color-link-hover: var(--secondary);
+
+  --font-size-body: 16px;
+
+  --font-size-h1: 3rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 2rem;
+  --font-size-h4: 1.25rem;
+  --font-size-h5: 1rem;
+  --font-size-h6: 1rem;
+
+  --font-size-display-1: 6rem;
+  --font-size-display-2: 5.5rem;
+  --font-size-display-3: 4.5rem;
+  --font-size-display-4: 3.5rem;
+  --font-weight-display: var(--font-weight-headings);
+
+  // Alerts
+  --alert-border-radius: var(--button-border-radius);
+
+  // Buttons
+  --button-border-radius: #{$border-radius};
+  --button-font-family: var(--font-family-body);
+  --button-font-size: 0.75rem;
+  --button-font-weight: 700;
+  --button-letter-spacing: var(--letter-spacing-body);
+  --button-line-height: 3;
+  --button-padding-x: #{$spacer};
+  --button-text-transform: uppercase;
+
+  --button-primary-bg-color: var(--primary);
+  --button-primary-bg-color-hover: var(--primary-light);
+  --button-primary-border-color: var(--button-primary-bg-color);
+  --button-primary-border-color-hover: var(--button-primary-bg-color-hover); 
+  --button-primary-color: var(--white);
+  --button-primary-color-hover: var(--white);
+
+  --button-secondary-bg-color: var(--secondary);
+  --button-secondary-bg-color-hover: var(--secondary-light);
+  --button-secondary-border-color: var(--button-secondary-bg-color);
+  --button-secondary-border-color-hover: var(--button-secondary-bg-color-hover); 
+  --button-secondary-color: var(--white);
+  --button-secondary-color-hover: var(--white);
+
+  // Header
+  --header-logo-max-width: 240px;
+  --header-bg-color: var(--white);
+  --header-link-color: var(--color-body);
+  --header-link-hover-color: var(--primary);
+  --header-link-font-size: 1rem;
+  --header-border-bottom: #{$spacer * 0.625} solid var(--primary);
+  --navbar-toggler-icon-color: var(--header-link-color);
+  --dropdown-border-radius: #{$border-radius};
+  --dropdown-background: var(--light);
+  --dropdown-font-size: var(--header-link-font-size);
+  --dropdown-link-color: var(--header-link-color);
+  --dropdown-link-hover-color: var(--header-link-hover-color);
+
+  // Footer
+  --footer-bg-color: var(--white);
+  --footer-color: var(--color-body);
+  --footer-link-color: var(--color-body);
+  --footer-link-hover-color: var(--primary);
+  --footer-border-top: 0;
+  --footer-social-icon-bg: var(--color-body);
+  --footer-social-icon-hover-bg: var(--primary);
+  --footer-social-icon-color: var(--light);
+  --footer-social-icon-hover-color: var(--light);
+
+  // Content
+  --site-content-padding-bottom: #{$spacer * 3.75};
+  --site-content-padding-top: #{$spacer * 4.125};
+
+  // Pagination
+  --pagination-justify-content: center;
+  --pagination-link-bg: var(--primary);
+  --pagination-link-color: #fff;
+  --pagination-link-bg-hover: var(--primary-light);
+  --pagination-link-color-hover: var(--color-link-hover);
+  --pagination-link-active-bg: var(--secondary);
+  --pagination-link-active-color: var(--primary);
+  --pagination-dots-bg: transparent;
+  --pagination-dots-color: var(--dark);
+
+  // Cards
+  --card-bg-color: var(--light);
+  --card-header-bg-color: var(--light);
+  --card-footer-bg-color: var(--light);
+  --card-border: 0;
+  --card-border-radius: #{$border-radius};
+
+  // Separator line
+  --separator-color: var(--primary);
+  --separator-border-width: 5px;
+
+  // Single
+  --thumbnail-height: 300px;
+
+  // Input fields
+  --input-background: #fff;
+  --input-border: 1px solid var(--gray-light);
+  --input-border-radius: #{$border-radius};
+  --input-color: --var(--gray-dark);
+  --input-font-size: 1rem;
+  --input-font-weight: 400;
+  --input-height: calc(1.5em + .75rem + 2px);
+  --input-line-height: 1.5;
+  --input-padding: .375rem .75rem;
+  --input-focus-border-color: var(--primary);
+  --input-focus-box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+
+  // Hero
+  --hero-height: 300px;
+  @media (min-width: $screen-sm-min) {
+    --hero-height: 400px;
+  }
+  @media (min-width: $screen-lg-min) {
+    --hero-height: 450px;
+  }
+
+  // Pullquote
+  --pullquote-border-width: 4px;
+  --pullquote-default-color: var(--color-body);
+
+  // WooCommerce
+  --wc-error: #b81c23;
+  --wc-info: var(--primary);
+  --wc-message: #8fae1b;
+  --wc-price: #77a464;
+  --booking-form-max-width: 300px;
+
+  // LearnDash
+  --ld-primary: var(--primary);
+  --ld-complete: var(--primary);
+  --ld-in-progress: var(--secondary);
+  --ld-price: var(--primary);
+  --ld-enrolled: var(--primary);
+
+  // WP Recipe maker
+  --wprm-background-color: var(--white);
+  --wprm-border-color: var(--gray-light);
+  --wprm-icon-color: var(--primary);
+  --wprm-heading-colors: var(--color-headings);
+  --wprm-text-color: var(--color-body);
+  --wprm-text-faded-color: var(--gray);
+}

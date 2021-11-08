@@ -1,0 +1,54 @@
+/*
+  PAGINATION
+
+  This styling is applied to page pagination when you have multiple pages
+  with posts. Most of this styling is inherited from button styling, but 
+  colors can be adjusted in _variables.scss.
+
+  By default, the pagination is centered. If you want the pagination to
+  be aligned left or right, simply change --pagination-justify-content to
+  either flex-start or flex-end.
+*/
+
+.pagination {
+  display: flex;
+  justify-content: var(--pagination-justify-content);
+  margin-bottom: $spacer;
+  width: 100%;
+
+  .nav-links {
+    white-space: nowrap;
+    
+    .page-numbers {
+      background: var(--pagination-link-bg);
+      color: var(--pagination-link-color);
+      display: inline-block;
+      font-size: var(--button-font-size);
+      font-weight: var(--button-font-weight);
+      line-height: var(--button-line-height);
+      padding: 0 var(--button-padding-x);
+      text-transform: var(--button-text-transform);
+      transition: all 0.2s ease-in-out;
+
+      @media (max-width: $screen-xs-max) {
+        padding: 0 calc(var(--button-padding-x) / 2);
+      }
+
+      &:hover {
+        background: var(--pagination-link-bg-hover);
+        color: var(--pagination-link-color-hover);
+        text-decoration: none;
+      }
+
+      &.dots {
+        background: var(--pagination-dots-bg);
+        color: var(--pagination-dots-color);
+      }
+      
+      &.current {
+        background: var(--pagination-link-active-bg);
+        color: var(--pagination-link-active-color);
+      }
+    }
+  }
+}

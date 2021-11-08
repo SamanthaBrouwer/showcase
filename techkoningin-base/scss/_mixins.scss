@@ -1,0 +1,218 @@
+/**
+  Mixins
+*/
+
+@mixin button-lg {
+  line-height: calc(var(--button-line-height) * 1.5);
+  padding: 0 calc(var(--button-padding-x) * 2);
+}
+
+@mixin block-shadow($color, $position: 'top left', $size: 'medium') {
+  position: relative;
+  &::after {
+    background: $color;
+    content: '';
+    position: absolute;
+    z-index: $z-index-negative;
+    @if $position == 'top left' {
+      left: -$spacer;
+      top: -$spacer;
+    }
+    @if $position == 'top right' {
+      right: -$spacer;
+      top: -$spacer;
+    }
+    @if $position == 'bottom left' {
+      bottom: -$spacer;
+      left: -$spacer;
+    }
+    @if $position == 'bottom right' {
+      bottom: -$spacer;
+      right: -$spacer;
+    }
+    
+    @if $size == 'large' {
+      height: calc(100% + #{$spacer} * 3);
+      width: 100%;
+    }
+    @if $size == 'medium' {
+      height: 100%;
+      width: 100%;
+    }
+    @if $size == 'small' {
+      height: calc(100% - #{$spacer} * 4);
+      width: 55%;
+    }
+  }
+}
+
+@mixin frame-sides($color, $position: 'right', $size: -70%) {
+  position: relative;
+  z-index: 2;
+  &::before {
+    background: transparent;
+    border-left: 4px solid $color;
+    border-right: 4px solid $color;
+    bottom: -$spacer * 0.5;
+    content: '';
+    position: absolute;
+    top: -$spacer * 0.5;
+    z-index: -1;
+    @if $position == 'right' {
+      left: $size;
+      right: $spacer;
+    }
+    @if $position == 'left' {
+      left: $spacer;
+      right: $size;
+    }
+  }
+}
+
+@mixin frame-top($color) {
+  padding-top: $spacer * 2;
+  &::before {
+    border-top: 4px solid $color;
+  }
+}
+
+@mixin frame-bottom($color) {
+  &::before {
+    border-bottom: 4px solid $color;
+  }
+}
+
+@mixin full-width-background($position: 'full') {
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    background: inherit;
+    content: '';
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    @if $position == 'full' {
+      left: calc(50% - 50vw);
+      width: 100vw;
+    } @else if $position == 'left' {
+      left: calc(50% - 50vw);
+      width: 50vw;
+    } @else if $position == 'right' {
+      left: 0;
+      width: 50vw;
+    } @else {
+      left: calc(50% - #{$position});
+      width: $position
+    }
+  }
+}
+
+@mixin sr-only {
+  border: 0;
+  clip: rect(0,0,0,0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin btn($style) {
+  border-radius: var(--button-border-radius);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  line-height: var(--button-line-height);
+  padding: 0 var(--button-padding-x);
+  text-transform: var(--button-text-transform);
+  transition: all 0.2s ease-in-out;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    text-decoration: none;
+  }
+
+  @if $style == 'primary' {
+    background-color: var(--button-primary-bg-color);
+    border: 1px solid var(--button-primary-border-color);
+    color: var(--button-primary-color);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--button-primary-bg-color-hover);
+      border-color: var(--button-primary-border-color-hover);
+      color: var(--button-primary-color-hover);
+    }
+  }
+
+  @if $style == 'secondary' {
+    background-color: var(--button-secondary-bg-color);
+    border: 1px solid var(--button-secondary-border-color);
+    color: var(--button-secondary-color);
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--button-secondary-bg-color-hover);
+      border-color: var(--button-secondary-border-color-hover);
+      color: var(--button-secondary-color-hover);
+    }
+  }
+}
+
+@mixin image-style($dimension) {
+  position: relative;
+  
+  @if $dimension == 'portrait' {
+    padding-top: 133%;
+  } @else if $dimension == 'landscape' {
+    padding-top: 75%;
+  } @else if $dimension == 'square' {
+    padding-top: 100%;
+  } @else if $dimension == 'circle' {
+    padding-top: 100%;
+
+    img {
+      border-radius: 50%;
+    }
+  } @else if $dimension == 'block-height' {
+    height: 100%;
+    margin-bottom: 0;
+  } @else {
+    padding-top: $dimension;
+  }
+
+  img {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@mixin nav-social-icons($icon-color: var(--header-link-color), $icon-color-hover: var(--header-link-hover-color), $icon-size: var(--header-link-font-size)) {
+  .nav-link {
+    color: transparent;
+    font-size: 0;
+
+    i {
+      color: $icon-color;
+      font-size: $icon-size;
+      margin-right: 0;
+      padding: $spacer * 0.25;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover i {
+      color: $icon-color-hover;
+    }
+  }
+}

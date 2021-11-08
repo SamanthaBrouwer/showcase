@@ -1,0 +1,74 @@
+.entry-content {
+  // Make sure to fill the gap when padding-top is set to
+  // avoid content touching the navbar. In case of this hero
+  // block, we want it to touch the navbar.
+  .block-hero:first-child {
+    margin-top: calc(var(--site-content-padding-top) * -1);
+  }
+}
+
+// Block-hero is also used in many child themes as featured image
+// on pages and posts, but is then set as header instead of first
+// item within .entry-content.
+.single header.block-hero,
+.page header.block-hero {
+  margin-top: calc(var(--site-content-padding-top) * -1);
+}
+
+.block-hero {
+  left: calc(50% - 50vw);
+  min-height: var(--hero-height);
+  position: relative;
+  top: 0;
+  width: 100vw;
+
+  + * {
+    margin-top: $spacer * 3;
+  }
+
+  &-overlay + * {
+    margin-top: -$spacer * 3;
+    position: relative;
+    z-index: 1;
+  }
+
+  > .wp-block-cover__inner-container {
+    color: var(--body-color);
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+
+    @media (max-width: $screen-xs-max) {
+      align-items: flex-end;
+      height: 100%;
+      justify-content: center;
+    }
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+      width: $container-lg;
+    }
+    @media (min-width: $screen-xl-min) {
+      width: $container-xl;
+    }
+
+    > .wp-block-group {
+      width: 100%;
+    }
+
+    .wp-block-group__inner-container {
+      position: relative;
+      z-index: 1;
+    }
+  }
+}
+
+.wp-block-cover-image, 
+.wp-block-cover {
+  min-height: var(--hero-height);
+}

@@ -1,0 +1,12 @@
+.wp-block-pullquote {
+  &:not(.is-style-solid-color) {
+    border-bottom: var(--pullquote-border-width) solid var(--pullquote-default-color);
+    border-top: var(--pullquote-border-width) solid var(--pullquote-default-color);
+    margin-bottom: $spacer * 3;
+    margin-top: $spacer * 3;
+
+    blockquote {
+      color: var(--pullquote-default-color);
+    }
+  }
+}

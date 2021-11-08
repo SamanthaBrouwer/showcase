@@ -1,0 +1,27 @@
+.ld-button {
+  @include btn;
+  @include btn-primary;
+}
+
+.learndash_mark_complete_button,
+#learndash_mark_complete_button {
+  @include btn;
+  @include btn-primary;
+  padding-right: $spacer * 2;
+}
+
+.ld-quiz-actions input[name=reShowQuestion], 
+.ld-quiz-actions input[name=restartQuiz] {
+  @include btn;
+  @include btn-secondary;
+}
+
+.ld-expand-button { 
+  &.ld-button-alternate {
+    color: var(--ld-primary);
+
+    .ld-icon {
+      background: var(--ld-primary);
+    }
+  }
+}

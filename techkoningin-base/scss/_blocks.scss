@@ -1,0 +1,97 @@
+/**
+  ** BLOCKS **  
+  These blocks are designed to use in the Gutenberg editor.
+  All blocks can be quickly selected via the Gutenberg Patterns section.
+
+  The following blocks are supported:
+    * .block-text-image
+      This block just displays text next to an image. It doesn't matter wether the image is displayed left or right.
+
+    * .block-text-image-half
+      This block displays text next to an image, but the image is displayed partly underneath the text.
+      IMPORTANT NOTE: Please add class '.block-text-image-half-left' or '.block-text-image-half-right' 
+      to tell if the image is displayed in the left or right column.
+
+    * .block-text-image-full
+      This block displays text next to an image, but the image is fully filled over 50% of the page, so it offsets the container.
+      IMPORTANT NOTE: Please add class '.block-text-image-full-left' or '.block-text-image-full-right' 
+      to tell if the image is displayed in the left or right column.
+
+    * .block-cards
+      This block can display one or multiple cards. Cards usually contain an image, title, text and button. 
+      The grid and amount of cards is based on what is set in the editor.
+
+    * .block-contact-small
+      This block displays two small contact info columns with 2 images. The contact info has a background color.
+
+    * .block-contact-large
+      This block displays two large columns with 2 images, below the images there's room for contact information and links to 
+      social media.
+
+    * .block-hero
+       This is a full-width block used as hero. The background image is set over the full width of the page, while the 
+       container inside has the normal container widths.
+
+    * .block-spotlight
+      This block is meant to display content in the spotlight of the page. 
+      It accepts headings inside and outside of the block, where the background of the block is set below the
+      header. If images are set, they are displayed next to eachother on the right side, partly over the background.
+
+    * SEPARATOR & YOUTUBE
+      The separator and youtube blocks are default Gutenberg blocks. No need to add an extra class.
+*/
+
+// Default styling
+.wp-block-group {
+  margin-bottom: $spacer * 2.5;
+  .wp-block-column {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: $screen-xs-max) {
+      margin-bottom: $spacer * 1.5;
+    }
+
+    h2 + h2 {
+      font-size: var(--font-size-h1);
+    }
+  }
+}
+
+// Colored blocks
+.block-primary {
+  background-color: var(--primary);
+}
+
+.block-primary-light {
+  background-color: var(--primary-light);
+}
+
+.block-secondary {
+  background-color: var(--secondary);
+}
+
+.block-light {
+  background-color: var(--light);
+}
+
+.has-background:not(.has-text-color) {
+  > * {
+    color: inherit;
+  }
+}
+
+@import 'blocks/block-text-image';
+@import 'blocks/block-text-image-half';
+@import 'blocks/block-text-image-full';
+@import 'blocks/block-cards';
+@import 'blocks/block-contact-small';
+@import 'blocks/block-contact-large';
+@import 'blocks/block-hero';
+@import 'blocks/block-spotlight';
+@import 'blocks/block-pullquote';
+
+@import 'blocks/block-separator';
+@import 'blocks/block-youtube';
+@import 'blocks/block-search';
+

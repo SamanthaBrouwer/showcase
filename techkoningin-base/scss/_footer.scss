@@ -1,0 +1,128 @@
+/**
+  FOOTER
+  The site footer is a full width footer at the bottom of the page.
+  Background and other colors can be changed in _variables.scss.
+
+  The footer contains 5 different parts in over 2 rows:
+  First row:
+    Small widget area (f.e. social icons, max 4) (25%)
+    Footer navigation (75%)
+  Second row:
+    Small widget area (f.e. contact info) +
+    Copyright area (33%)
+    Two recent posts (66%)
+
+  Social icons can be added by using an html widget in the Footer 1 widget area.
+  You can use Font Awesome to add icons (https://fontawesome.com/icons/)
+  Code example:
+    <a href="#"><i class="fab fa-instagram"></i></a>
+
+  Contact info can be added by using an html or text widget in the Footer 2
+  widget area.
+*/
+
+.site-footer {
+  background: var(--footer-bg-color);
+  border-top: var(--footer-border-top);
+  color: var(--footer-color);
+
+  a {
+    color: var(--footer-link-color);
+    
+    &:hover {
+      color: var(--footer-link-hover-color);
+    }
+  }
+
+  .nav {
+    @media (max-width: $screen-sm-max) {
+      justify-content: center;
+    }
+    @media (min-width: $screen-md-min) {
+      flex-wrap: nowrap;
+      text-align: center;
+    }
+    &-link {
+      color: var(--footer-link-color);
+      font-size: 0.875rem;
+      transition: color 0.2s ease-in-out;
+      @media (min-width: $screen-xl-min) {
+        font-size: 1rem;
+      }
+      &:hover,
+      &:focus,
+      &:active {
+        background: none;
+        color: var(--footer-link-hover-color);
+      }
+    }
+  }
+
+  .footer {
+    &-nav {
+      padding: 0 0.2rem 1.5rem;
+    }
+
+    &-social {
+      .textwidget {
+        display: flex;
+        @media (max-width: $screen-sm-max) {
+          justify-content: center;
+        }
+      }
+      a {
+        align-items: center;
+        background: var(--footer-social-icon-bg);
+        border-radius: 50%;
+        color: var(--footer-social-icon-color);
+        display: inline-flex;
+        font-size: 1.5rem;
+        justify-content: center;
+        line-height: 1.5;
+        padding: 0.5rem 0.4rem 0.5rem 0.6rem; // Cheating the FA system
+        transition: all 0.2s ease-in-out;
+        width: 2.5rem;
+        
+        @media (min-width: $screen-lg-min) {
+          font-size: 2rem;
+          width: 3rem;
+        }
+
+        &:not(:last-child) {
+          margin-right: $spacer * 0.5;
+          @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            margin-right: $spacer * 0.25;
+          }
+        }
+
+        &:hover {
+          background: var(--footer-social-icon-hover-bg);
+          color: var(--footer-social-icon-hover-color);
+          text-decoration: none;
+        }
+      }
+    }
+
+    &-widget {
+      h3 {
+        font-size: 2rem;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        order: 3;
+      }
+    }
+
+    &-copyright {
+      font-weight: normal;
+      letter-spacing: normal;
+      text-transform: none;
+      @media (max-width: $screen-sm-max) {
+        text-align: center;
+      }
+      a {
+        color: var(--footer-color);
+      }
+    }
+  }
+}

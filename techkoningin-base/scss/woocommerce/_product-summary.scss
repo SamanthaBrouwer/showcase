@@ -1,0 +1,60 @@
+.woocommerce {
+  &,
+  #content,
+  &-page #content,
+  &-page {
+    div.product {
+      div.summary {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .product_title,
+        .product_meta,
+        .price {
+          flex: 0 1 100%;
+        }
+
+        .product_title {
+          order: 1;
+        }
+
+        .product_meta {
+          display: none;
+          order: 2;
+        }
+
+        .price {
+          order: 3;
+        }
+
+        .woocommerce-product-details__short-description {
+          flex: 0 1 100%;
+          order: 4;
+          @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            flex: 0 1 50%;
+          }
+          @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+            flex: 0 1 60%;
+          }
+          @media (min-width: $screen-xl-min) {
+            flex: 0 1 calc((100% / 3) * 2);
+          }
+        }
+
+        form.cart {
+          order: 5;
+          margin: $spacer auto;
+
+          @media (min-width: $screen-md-min) {
+            margin: 0 0 0 auto;
+          }
+        }
+      }
+
+      p.price,
+      span.price {
+        color: var(--wc-price);
+      }
+    }
+  }
+}

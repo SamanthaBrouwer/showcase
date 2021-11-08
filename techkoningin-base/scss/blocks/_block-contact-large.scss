@@ -1,0 +1,32 @@
+.block-contact-large {
+  .wp-block-columns {
+    justify-content: space-around;
+
+    .wp-block-column {
+      max-width: 400px;
+
+      h3 {
+        margin-bottom: $spacer;
+        text-align: center;
+      }
+
+      .wp-block-buttons {
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        max-width: 250px;
+        width: 100%;
+
+        .wp-block-button {
+          margin-bottom: $spacer;
+          margin-right: 0;
+          width: 100%;
+
+          &__link {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}

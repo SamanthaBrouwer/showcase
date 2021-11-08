@@ -1,0 +1,84 @@
+.woocommerce {
+  form {
+    .form-row {
+      align-items: center;
+      margin: 0 #{-$grid-gutter-width / 2} #{$spacer};
+      padding: 0;
+
+      &-first,
+      &-last {
+        float: none;
+        width: auto;
+      }
+
+      label {
+        flex: 0 0 100%;
+        line-height: var(--line-height-body);
+        margin: 0;
+        word-break: break-word;
+        @media (min-width: $screen-md-min) {
+          flex: 0 0 40%;
+        }
+
+        &.woocommerce-form__label-for-checkbox {
+          @media (min-width: $screen-md-min) {
+            flex: 0 0 60%;
+            margin-left: auto;
+          }
+        }
+      }
+
+      .woocommerce-input-wrapper,
+      .woocommerce-Input,
+      .password-input,
+      label + .input-text {
+        flex: 0 0 100%;
+        @media (min-width: $screen-md-min) {
+          flex: 0 0 60%;
+          margin-left: auto;
+        }
+      }
+    }
+
+    .select2-container {
+      .select2-selection--single {
+        @extend .form-control;
+        @media (max-width: $screen-sm-max) {
+          padding-top: 2px;
+        }
+        @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+          padding-top: 2px;
+        }
+        @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+          padding-top: 4px;
+        }
+        
+        .select2-selection__rendered {
+          padding-left: 0;
+        }
+        .select2-selection__arrow {
+          top: 2px;
+          @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+            top: 3px;
+          }
+          @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+            top: 4px;
+          }
+          @media (min-width: $screen-xl-min) {
+            top: 6px;
+          }
+        }
+      }
+    }
+
+    fieldset {
+      > legend {
+        margin: 0 #{-$grid-gutter-width / 2} #{$spacer * 0.5};
+      }
+    }
+
+    .show-password-input {
+      top: $spacer * 0.4;
+    }
+  }
+}
