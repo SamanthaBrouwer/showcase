@@ -1,0 +1,43 @@
+.mailpoet_form {
+  .mailpoet {
+    &_textarea,
+    &_text,
+    &_select {
+      background: var(--input-background);
+      background-clip: padding-box;
+      border: var(--input-border);
+      border-radius: var(--input-border-radius);
+      color: var(--input-color);
+      font-size: var(--input-font-size);
+      font-weight: var(--input-font-weight);
+      height: var(--input-height);
+      line-height: var(--input-line-height);
+      padding: var(--input-padding);
+      width: 100% !important;
+    }
+
+    &_paragraph {
+      margin-bottom: $spacer;
+    }
+
+    &_submit {
+      @include btn('primary');
+
+      margin-top: $spacer * 0.5;
+      width: 100%;
+    }
+  }
+}
+
+// Styling for mailpoet form on contact page
+#mailpoet_form_2 {
+  background: var(--secondary-light);
+  padding: $spacer;
+  margin-bottom: $spacer;
+  max-width: 683px;
+
+  @media (min-width: $screen-sm-min) {
+    padding: $spacer * 2;
+    margin-bottom: $spacer * 2;
+  }
+}

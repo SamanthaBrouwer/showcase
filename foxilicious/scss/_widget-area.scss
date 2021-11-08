@@ -1,0 +1,84 @@
+@import 'widget-title';
+
+.widget-area {
+  &-home {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -$grid-gutter-width;
+    width: 100%;
+
+    &::before {
+      background: var(--primary-light);
+      content: '';
+      display: block;
+      height: 2px;
+      margin: $spacer * 3 auto;
+      width: 100px;
+    }
+
+    .widget {
+      padding: 0 $grid-gutter-width / 2;
+
+      &:not(.widget_media_image) {
+        .widget-title {
+          @extend %widget-title;
+        }
+      }
+
+      &_text {
+        flex-basis: 100%;
+      }
+
+      &_media_image {
+        flex: 0 1 50%;
+        margin-bottom: $grid-gutter-width;
+        position: relative;
+
+        @media (min-width: $screen-sm-min) {
+          flex-basis: 25%;
+        }
+
+        .widget-title {
+          align-items: center;
+          background: rgba(255, 255, 255, 0.75);
+          bottom: 0;
+          display: flex;
+          justify-content: center;
+          left: 0;
+          margin-bottom: 0;
+          padding: $spacer * 0.75 $spacer * 0.5;
+          position: absolute;
+          right: 0;
+          z-index: 1;
+        }
+
+        .wp-caption {
+          background: transparent;
+          border: 0;
+          margin: 0 !important;
+          max-width: 100%;
+          padding: 0;
+          width: auto !important;
+
+          > a img {
+            height: 100% !important;
+          }
+        }
+
+        a {
+          @include image-style('portrait');
+          
+          display: block;
+
+          img {
+            height: 100% !important;
+          }
+        }
+
+        figcaption {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+@import 'widget-title';
+
+.single {
+  .post {
+    &-title {
+      text-align: center;
+    }
+
+    &-meta {
+      color: var(--gray);
+      font-weight: 400;
+
+      span {
+        &:not(:last-child) {
+          &::after {
+            content: '\2022';
+            margin-left: $spacer * 0.25;
+          }
+        }
+      }
+    }
+
+    &-tags {
+      text-align: center;
+
+      &::before,
+      &::after {
+        @include separator;
+      }
+
+      h4 {
+        @extend %widget-title;
+      }
+
+      > a {
+        @include btn('secondary');
+        display: inline-block;
+      }
+    }
+
+    &-share {
+      display: flex;
+      justify-content: center;
+      
+      > a {
+        @include btn;
+
+        color: var(--white);
+        display: inline-block;
+
+        &:not(:last-child) {
+          margin-right: $spacer * 0.5;
+        }
+
+        &::before {
+          margin-right: $spacer * 0.5;
+        }
+      }
+
+      .twitter { 
+        background: #3a93d8;
+        
+        &:hover {
+          background: #59aef5;
+        }
+
+        &::before {
+          @include fa-icon($icon: '\f099', $family: 'brands');
+        }
+      }
+
+      .facebook {
+        background: #2e6cc8;
+        
+        &:hover {
+          background: #5084e4;
+        }
+        &::before {
+          @include fa-icon($icon: '\f39e', $family: 'brands');
+        }
+      }
+
+      .pinterest {
+        background: #bd081c;
+        
+        &:hover {
+          background: #d50f25;
+        }
+
+        &::before {
+          @include fa-icon($icon: '\f231', $family: 'brands');
+        }
+      }
+
+      .print {
+        background: #76a75e;
+        
+        &:hover {
+          background: #5d9840;
+        }
+
+        &::before {
+          @include fa-icon($icon: '\f02f', $family: 'solid');
+        }
+      }
+    }
+
+    &-author {
+      &::before {
+        @include separator;
+      }
+
+      &-container {
+        display: flex;
+
+        .author {
+          &-avatar {
+            flex: 0 0 90px;
+            margin-right: $spacer * 2;
+
+            img {
+              border-radius: 50%;
+            }
+          }
+
+          &-title {
+            a {
+              color: var(--color-body);
+            }
+          }
+        }
+      }
+    }
+  }
+}

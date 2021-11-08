@@ -1,0 +1,76 @@
+/**
+  Post
+*/
+.blog,
+.archive,
+.search-results,
+.page-template-recipe-index,
+.page-template-recipe-index-cat {
+  .post {
+    $post: &;
+
+    &,
+    &-overview {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: $spacer * 2;
+      overflow: hidden;
+    }
+
+    &-thumbnail {
+      height: auto;
+      margin-bottom: 0;
+      padding-top: 130%;
+
+      @media (min-width: $screen-sm-min) {
+        padding-top: 145%;
+      }
+
+      img {
+        position: absolute;
+        top: 0;
+      }
+    }
+
+    &-header {
+      text-align: center;
+    }
+
+    &-container {
+      flex-basis: 100%;
+      position: relative;
+    }
+    
+    &-category {
+      background: var(--primary-light);
+      color: var(--color-body);
+      font-size: 0.875rem;
+      padding: $spacer * 0.25 $spacer * 0.5;
+      position: absolute;
+      right: -$spacer * 0.25;
+      text-transform: uppercase;
+      top: $spacer;
+    }
+    
+    &-title {
+      --font-size-h2: 1.25rem;
+
+      align-items: center;
+      background: rgba(255, 255, 255, 0.75);
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      left: 0;
+      margin-bottom: 0;
+      min-height: calc(var(--line-height-headings) * var(--font-size-h2) * 3 + #{$spacer}); // Min height of 3 lines of text + padding
+      padding: $spacer * 0.5 $spacer * 0.25;
+      position: absolute;
+      right: 0;
+
+      a {
+        color: var(--color-body);
+        transition: color 0.2s ease-in-out;
+      }
+    }
+  }
+}

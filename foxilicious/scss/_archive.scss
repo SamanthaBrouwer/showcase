@@ -1,0 +1,19 @@
+.archive,
+.search-results {
+  .site-main {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .page-header {
+    flex-basis: 100%;
+    padding-left: $grid-gutter-width / 2;
+    padding-right: $grid-gutter-width / 2;
+  }
+}
+
+.archive {
+  &-description {
+    margin-bottom: $spacer * 2;
+  }
+}

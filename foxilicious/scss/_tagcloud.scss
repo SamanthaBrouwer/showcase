@@ -1,0 +1,31 @@
+.tagcloud {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .tag-cloud-link {
+    border: 1px solid var(--primary);
+    border-radius: $spacer * 0.25;
+    color: var(--color-body);
+    display: flex;
+    flex-basis: calc(50% - #{$spacer * 0.25});
+    font-size: 1rem !important;
+    margin-bottom: $spacer * 0.5;
+    padding: $spacer * 0.25 $spacer * 0.5;
+    text-align: left;
+
+    &:hover {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  }
+
+  .tag-link-count {
+    background: var(--primary);
+    color: white;
+    line-height: 2.1;
+    margin: #{-$spacer * 0.25} #{-$spacer * 0.5} #{-$spacer * 0.25} auto;
+    padding-left: $spacer * 0.5;
+    padding-right: $spacer * 0.5;
+  }
+}

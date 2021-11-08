@@ -1,0 +1,300 @@
+.site-header {
+  .navbar {
+    &-brand {
+      margin-right: 0;
+      padding: 0;
+      z-index: 1001; // Make sure it is still visible over mobile menu
+
+      @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+        --header-logo-max-width: 150px;
+      }
+
+      @media (min-width: $screen-xl-min) {
+        margin-right: $spacer * 3;
+      }
+    }
+
+    &-toggler {
+      font-size: 3rem;
+      order: 3;
+    }
+
+    &-container {
+      // Mobile menu view
+      @media (max-width: $screen-md-max) {
+        --header-link-font-size: 2rem;
+        --dropdown-link-color: var(--gray);
+
+        align-items: center;
+        background: var(--white);
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        left: 0;
+        overflow-x: hidden;
+        padding-bottom: $spacer;
+        padding-top: $spacer * 18;
+        position: fixed;
+        right: 0;
+        top: 0;
+        transition: 0.5s;
+        width: 0;
+        z-index: 1000;
+
+        .navbar-toggler {
+          position: absolute;
+          right: $spacer * 2;
+          top: $spacer * 2;
+        }
+
+        .header-nav {
+          &-main {
+            .nav {
+              &-item {
+                margin-bottom: $spacer;
+              }
+
+              &-link {
+                text-align: center;
+              }
+            }
+          }
+
+          &-social {
+            .nav-link i {
+              font-size: var(--header-link-font-size);
+            }
+          }
+        }
+
+        .dropdown-menu {
+          font-size: calc(var(--header-link-font-size) * 0.8);
+          margin-bottom: $spacer * 1.5;
+          padding-top: $spacer;
+          text-align: center;
+        }
+      }
+
+      // Desktop menu view
+      @media (min-width: $screen-lg-min) {
+        display: flex;
+        flex-basis: 100%;
+      }
+    }
+
+    &-nav {
+      justify-content: center;
+
+      .nav-link,
+      .dropdown-item {
+        font-family: var(--font-family-headings);
+      }
+
+      .nav-link {
+        padding-left: $spacer * 0.75;
+        padding-right: $spacer * 0.75;
+      }
+    }
+  }
+
+  .header-nav-social {
+    @include nav-social-icons($icon-color: var(--footer-social-icon-color), $icon-color-hover: var(--footer-social-icon-hover-color), $icon-size: 1.25rem);
+
+    .nav-link {
+      padding: $spacer * 0.5;
+
+      i {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.is-sticky {
+    box-shadow: 0px 1px 5px rgba(190, 190, 190, 0.46);
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    .admin-bar & {
+      @media (min-width: $screen-sm-min) {
+        top: 46px;
+      }
+      @media (min-width: $screen-md-min) {
+        top: 32px;
+      }
+    }
+
+    .navbar-brand {
+      img {
+        max-width: 80px;
+        transition: all 0.2s ease-in-out;
+
+        @media (min-width: $screen-sm-min) {
+          max-width: 100px;
+        }
+      }
+    }
+
+    + .page-sub-header {
+      margin-top: 28px;
+
+      @media (min-width: $screen-sm-min) {
+        margin-top: 88px;
+      }
+    }
+  }
+
+  // Popover search in small navbar (on scroll)
+  .search {
+    &-toggler {
+      border: 0;
+      display: flex;
+      opacity: 0;
+      position: relative;
+      transition: opacity 0.2s ease-in-out;
+      visibility: hidden;
+
+      @media (max-width: $screen-md-max) {
+        > i {
+          font-size: 2rem;
+        }
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background: transparent;
+      }
+
+      &-container {
+        position: relative;
+
+        @media (max-width: $screen-md-max) {
+          margin-left: auto;
+          order: 2;
+        }  
+      }
+    }
+
+    &-popover {
+      background: var(--white);
+      border: 1px solid var(--primary);
+      display: none;
+      padding: $spacer;
+      position: fixed;
+      top: $spacer * 5.55;
+      right: $spacer;
+      z-index: 100;
+      
+      @media (max-width: $screen-xs-max) {
+        left: $spacer;
+      }
+      
+      @media (min-width: $screen-sm-min) {
+        max-width: 300px;
+        position: absolute;
+        right: 0;
+        top: $spacer * 4.25;
+        width: 100vw;
+      }
+
+      @media (min-width: $screen-lg-min) {
+        top: $spacer * 3.25;
+      }
+
+      &::before,
+      &::after {
+        border: solid transparent;
+        bottom: 100%;
+        content: '';
+        pointer-events: none;
+        position: absolute;
+        right: $spacer * 7;
+
+        @media (min-width: $screen-sm-min) {
+          right: $spacer * 0.5;
+        }
+      }
+      
+      &::after {
+        border-color: transparent;
+        border-bottom-color: var(--white);
+        border-width: $spacer;
+        margin-left: -$spacer;
+      }
+
+      &::before {
+        border-color: transparent;
+        border-bottom-color: var(--primary);
+        border-width: calc(#{$spacer} + 1px);
+        margin-left: calc(#{-$spacer} - 1px);
+        right: calc(#{$spacer * 7} - 1px);
+        
+        @media (min-width: $screen-sm-min) {
+          right: calc(#{$spacer * 0.5} - 1px);
+        }
+      }
+
+      .search-form {
+        width: 100%;
+        
+        .form-select {
+          flex-basis: 100%;
+          margin-bottom: $spacer;
+        }
+  
+        .search-row {
+          flex-wrap: wrap;
+          margin-bottom: 0 !important;
+        }
+  
+        .row > .col-auto.d-flex.w-100 {
+          flex-wrap: wrap;
+        }
+
+        .search-submit {
+          margin-top: $spacer;
+          width: 100%;
+        }
+      }
+
+      &-background {
+        background: transparent;
+        bottom: 0;
+        cursor: default;
+        left: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: 10;
+      }
+    }
+  }
+
+  &.is-sticky .search {
+    &-toggler {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &:not(.is-sticky) {
+    .search-popover {
+      display: none !important;
+    }
+  }
+}
+
+// Extra body class to avoid background scrolling
+.mobile-nav-open {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+
+  #wpadminbar {
+    display: none;
+  }
+}

@@ -1,0 +1,121 @@
+.footer-widget {
+  &-full-width {
+    border-top: 1px solid var(--primary-light);
+    padding-top: $spacer;
+  }
+
+  &-container-width {
+    @media (min-width: $screen-sm-min) {
+      padding: $spacer 0;
+    }
+  }
+}
+
+.site-footer {
+  padding: $spacer * 2 0;
+
+  .widget_nav_menu {
+    text-align: left;
+
+    .widget-title {
+      color: var(--footer-color);
+    }
+
+    .nav-item {
+      text-align: left;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      padding: $spacer * 0.25 0;
+    }
+
+    .sub-menu {
+      display: none;
+    }
+  }
+
+  // Sub footer
+  &-sub {
+    padding: $spacer * 1.5 0;
+    
+    @media (min-width: $screen-md-min) {
+      padding: $spacer * 2 0;
+    }
+
+    .footer {
+      &-nav {
+        margin-left: -$grid-gutter-width / 2;
+        margin-right: -$grid-gutter-width / 2;
+        padding: 0;
+        
+        @media (max-width: $screen-sm-max) {
+          flex-wrap: wrap;
+        }
+  
+        &-main {
+          flex: 0 0 100%;
+          position: relative;
+          
+          @media (min-width: $screen-md-min) {
+            flex-basis: auto;
+            margin-left: -$spacer;
+            padding-right: $spacer * 2;
+  
+            &::after {
+              background: var(--white);
+              bottom: $spacer * 0.5;
+              content: '';
+              position: absolute;
+              right: 0;
+              top: $spacer * 0.5;
+              width: 1px;
+            }
+          }
+
+          .nav-link {
+            &:hover,
+            &:focus,
+            &:active {
+              background: transparent;
+            }
+          }
+        }
+  
+        &-social {
+          @include nav-social-icons($icon-color: var(--footer-social-icon-color), $icon-color-hover: var(--footer-social-icon-hover-color), $icon-size: 1.25rem);
+  
+          flex: 0 0 100%;
+          
+          @media (min-width: $screen-md-min) {
+            flex-basis: auto;
+            margin-left: $spacer * 2;
+          }
+  
+          .nav-link {
+            padding: $spacer * 0.5;
+          }
+        }
+      }
+    }
+  
+    .nav-link {
+      @media (max-width: $screen-lg-max) {
+        font-size: 1.25rem;
+      }
+    }
+
+    .footer-widget {
+      color: var(--secondary-light);
+      text-align: center;
+
+      p {
+        margin-bottom: 0;
+
+        @media (max-width: $screen-sm-max) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

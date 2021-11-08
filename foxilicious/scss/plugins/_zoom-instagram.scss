@@ -1,0 +1,41 @@
+.zoom-instagram-widget {
+  position: relative;
+
+  &__items {
+    display: flex;
+    padding-left: 0;
+    margin-left: -$grid-gutter-width / 2;
+    margin-right: -$grid-gutter-width / 2;
+    overflow: hidden;
+  }
+
+  &-user-info {
+    & &-follow-button {
+      @include btn('primary');
+    }
+  }
+
+  &__follow-me {
+    bottom: $spacer * 7;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+
+    @media (min-width: $screen-sm-min) {
+      bottom: $spacer * 10;
+    }
+
+    > a {
+      @include btn('secondary');
+
+      color: var(--button-secondary-color) !important;
+      font-family: var(--button-font-family) !important;
+      font-weight: var(--button-font-weight) !important;
+
+      &:hover {
+        color: var(--button-secondary-color-hover) !important;
+      }
+    }
+  }
+}

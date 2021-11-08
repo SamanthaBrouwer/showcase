@@ -1,0 +1,52 @@
+// Styling for Jetpack Related Posts
+// Usually we don't style on ID's but in this case we need it to overrule
+body #jp-relatedposts {
+  h3.jp-relatedposts-headline {
+    display: block;
+    float: none;
+    text-align: center;
+
+    &::before {
+      @include separator;
+    }
+
+    em {
+      @extend %widget-title;
+
+      font-weight: normal !important;
+      
+      &::before {
+        display: none;
+      }
+    }
+
+  }
+
+  .jp-relatedposts-items {
+    .jp-relatedposts-post {
+      .jp-relatedposts-post-context, 
+      .jp-relatedposts-post-date {
+        display: none !important;
+      }
+
+      .jp-relatedposts-post-title a {
+        color: var(--color-body);
+        font-family: var(--font-family-headings);
+        font-size: var(--font-size-h3);
+      }
+    }
+  }
+
+  .jp-relatedposts-items-visual {
+    h4.jp-relatedposts-post-title {
+      align-items: center;
+      background: var(--primary-light);
+      display: flex;
+      justify-content: center;
+      line-height: 1.4;
+      min-height: calc(((var(--font-size-h3) * 3) * 1.4) + #{$spacer}); // H3 font-size * 3 lines + line-height + padding
+      padding: $spacer * 0.5;
+      text-align: center;
+    }
+  }
+}

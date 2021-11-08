@@ -1,0 +1,21 @@
+.block-instagram {
+  .wp-block-image {
+    figure {
+      display: block;
+      height: 80px;
+      margin-left: -$grid-gutter-width / 2;
+      margin-right: -$grid-gutter-width / 2;
+
+      @media (min-width: $screen-sm-min) {
+        height: 160px;
+      }
+
+      img {
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+        width: 100%;
+      }
+    }
+  }
+}

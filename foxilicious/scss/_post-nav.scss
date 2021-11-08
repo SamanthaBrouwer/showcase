@@ -1,0 +1,53 @@
+// Post navigation
+// Displays the next and previous post below a single post
+@import 'separator';
+
+.post-nav {
+  border-bottom: 2px solid var(--primary-light);
+  border-top: 2px solid var(--primary-light);
+  display: flex;
+  padding: $spacer 0;
+  margin-bottom: $spacer * 2;
+
+  &-container {
+    align-items: center;
+    display: flex;
+    flex: 0 0 50%;
+    padding: $spacer;
+  }
+
+  &-link {
+    @include image-style(100px);
+
+    display: block;
+    flex: 0 0 100px;
+    height: 100%;
+    margin: 0 $spacer;
+    max-width: 100px;
+
+    @media (max-width: $screen-xs-max) {
+      display: none;
+    }
+  }
+
+  &-title {
+    flex: 1 1 auto;
+  }
+
+  &-prev {
+    border-right: 1px solid var(--primary-light);
+
+    &::before {
+      @include fa-icon($icon: '\f053');
+    }
+  }
+
+  &-next {
+    border-left: 1px solid var(--primary-light);
+    margin-left: auto;
+
+    &::after {
+      @include fa-icon($icon: '\f054');
+    }
+  }
+}

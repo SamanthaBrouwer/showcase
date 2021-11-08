@@ -1,0 +1,70 @@
+.recipe-index {
+  &-search {
+    background: var(--secondary-light);
+    margin-bottom: $spacer * 2;
+    padding: $spacer * 2;
+  }
+
+  &-menu {
+    .menu {
+      display: flex;
+      list-style: none;
+      padding-left: 0;
+
+      &-index {
+        float: right;
+      }
+
+      li {
+        padding: 0 #{$spacer * 0.5};
+
+        &.current-menu-item {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  &-entry-title {
+    border-bottom: 2px solid var(--primary-light);
+    padding-bottom: $spacer;
+  }
+
+  &-list-posts {
+    list-style: none;
+    position: relative;
+    padding: $spacer;
+    
+    &::before {
+      background: var(--primary-light);
+      bottom: 0;
+      content: '';
+      left: $spacer;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+
+    li {
+      border-bottom: 2px dotted var(--primary-light);
+      padding-left: $spacer;
+      padding-top: $spacer * 0.5;
+    }
+  }
+}
+
+.page-template-recipe-index-cat  {
+  .foodica-index {
+    padding-bottom: $spacer * 6;
+    position: relative;
+  
+    &::after {
+      @include separator;
+  
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+    }
+  }
+}

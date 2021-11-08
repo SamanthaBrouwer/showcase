@@ -1,0 +1,37 @@
+/** 
+  MIXINS
+  
+  These mixins were originally created for Verbluffend Anders
+  You can still use them if you want anything like colored block shadows or
+  frames around content.
+*/
+
+@mixin image-style($dimension) {
+  position: relative;
+  
+  @if $dimension == 'portrait' {
+    padding-top: 133%;
+  } @else if $dimension == 'landscape' {
+    padding-top: 75%;
+  } @else if $dimension == 'square' {
+    padding-top: 100%;
+  }
+
+  img {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+@mixin separator($color: var(--primary-light)) {
+  background: $color;
+  content: '';
+  display: block;
+  height: 2px;
+  margin: $spacer * 3 auto;
+  width: 100px;
+}

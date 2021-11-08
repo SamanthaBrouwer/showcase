@@ -1,0 +1,94 @@
+@import 'widget-title';
+
+.sidebar {
+  .widget {
+    font-size: 0.875rem;
+    text-align: center;
+
+    &:not(:last-child) {
+      &::after {
+        @include separator;
+      }
+    }
+
+    &-title {
+      @extend %widget-title;
+    }
+
+    .nav {
+      &-item {
+        background: var(--primary-light);
+        display: block;
+        margin-bottom: $spacer * 0.5;
+
+        &:hover {
+          background: var(--primary-light);
+        }
+      }
+      
+      &-link {
+        color: var(--dark);
+        font-size: 1rem;
+        font-weight: 600;
+        padding-right: 0;
+        text-align: center;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    // Categories - Basically normal nav items but displayed differently
+    &_categories {
+      .nav {
+        &-item {
+          background: transparent;
+          border-bottom: 2px solid var(--primary-light);
+          text-align: left;
+        }
+
+
+        &-link {
+          color: var(--primary);
+          font-weight: 400;
+          padding: $spacer * 0.25 0;
+          text-align: left;
+        }
+      }
+
+    }
+
+    // When search is displayed in the sidebar
+    &_search {
+      .search {
+        &-form {
+          justify-content: center;
+        }
+
+        &-row {
+          flex-wrap: wrap;
+        }
+      }
+
+      .form-select {
+        flex-basis: 100%;
+        margin-bottom: $spacer * 0.5;
+      }
+    }
+
+    // Mailpoet form (newsletter sign up)
+    &_mailpoet_form {
+      background: var(--secondary-light);
+      padding: $spacer;
+
+      &::after {
+        margin: $spacer * 0.5 auto !important;
+      }
+
+      .widget-title {
+        margin-top: $spacer;
+      }
+    }
+  }
+}

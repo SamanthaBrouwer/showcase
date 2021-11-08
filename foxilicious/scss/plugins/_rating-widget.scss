@@ -1,0 +1,87 @@
+@import '../widget-title';
+
+.rw_top_rated {
+  flex-basis: 100%;
+}
+
+.rw-ui-control.rw-ui-content-recommendations {
+  * {
+    box-sizing: border-box;
+  }
+
+  .rw-ui-content-recommendation-groups {
+    &,
+    .rw-ui-group-items {
+      display: flex;
+      list-style: none;
+      margin-left: -$spacer * 0.5 !important;
+      margin-right: -$spacer * 0.5 !important;
+      width: calc(100% + $spacer);
+
+      @media (max-width: $screen-xs-max) {
+        flex-wrap: wrap;
+      }
+    }
+
+    .rw-ui-group-item {
+      flex: 1 0 50%;
+      margin-bottom: $grid-gutter-width !important;
+      padding: 0 $grid-gutter-width / 2;
+
+      @media (min-width: $screen-sm-min) {
+        flex-basis: 25%;
+        max-width: 25%;
+      }
+    }
+
+    .rw-ui-content-recommendation {
+      background: var(--primary-light);
+      height: 100%;
+
+      .rw-ui-thumb {
+        background: transparent;
+        border: 0;
+        height: auto !important;
+        padding: 0;
+        width: 100% !important;
+
+        img {
+          height: auto !important;
+          width: 100% !important;
+        }
+
+        .rw-ui-rating {
+          background: var(--primary-light);
+          bottom: 0;
+          position: relative;
+          padding: 0;
+          width: 100% !important;
+        }
+
+        &-link {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .rw-ui-content-recommendations-title, 
+  .rw-ui-group-title, 
+  .rw-ui-title {
+    align-items: center;
+    background: var(--primary-light);
+    color: var(--color-body);
+    display: flex;
+    font-family: var(--font-family-headings);
+    font-size: var(--font-size-h3);
+    line-height: 1.4;
+    margin-top: 0;
+    min-height: calc(1.4 * #{$spacer * 3}); // Line-height * minimum lines
+    padding: #{$spacer * 0.25} #{$spacer * 0.5};
+    text-align: center;
+  }
+
+  .rw-ui-footer {
+    display: none;
+  }
+}

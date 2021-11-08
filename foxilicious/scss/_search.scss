@@ -1,0 +1,32 @@
+.search {
+  &-form {
+    flex-direction: column;
+  }
+
+  &-row {
+    flex-wrap: nowrap;
+
+    @media (max-width: $screen-xs-max) {
+      margin-left: -2px;
+      margin-right: -2px;
+    }
+
+    .col-auto {
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      @media (max-width: $screen-xs-max) {
+        padding-left: 2px;
+        padding-right: 2px;
+      }
+    } 
+  }
+
+  &-submit {
+    white-space: nowrap;
+
+    i {
+      margin-left: $spacer * 0.5;
+    }
+  }
+}

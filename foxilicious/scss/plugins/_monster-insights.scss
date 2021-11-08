@@ -1,0 +1,13 @@
+body {
+  .monsterinsights-widget-popular-posts {
+    &.monsterinsights-popular-posts-styled {
+      &.monsterinsights-widget-popular-posts-alpha {
+        .monsterinsights-widget-popular-posts-list {
+          li {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

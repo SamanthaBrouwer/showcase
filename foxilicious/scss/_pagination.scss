@@ -1,0 +1,28 @@
+.pagination {
+  .nav-links {
+    .page-numbers {
+      border: var(--input-border);
+      border-color: var(--pagination-link-bg);
+      
+      &.current,
+      &.prev,
+      &.next {
+        border: var(--input-border);
+      }
+      
+      &.prev::before {
+        content: '\2190';
+        margin-right: $spacer * 0.5;
+      }
+      
+      &.next::after {
+        content: '\2192';
+        margin-left: $spacer * 0.5;
+      }
+
+      &:hover {
+        border-color: var(--color-body);
+      }
+    }
+  }
+}

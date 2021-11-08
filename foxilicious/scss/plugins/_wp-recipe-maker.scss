@@ -1,0 +1,27 @@
+.wprm-recipe-link {
+  &.wprm-recipe-link-button,
+  &.wprm-recipe-link-inline-button,
+  &.wprm-recipe-link-wide-button {
+    background-color: var(--button-primary-bg-color) !important;
+    border: 1px solid var(--button-primary-border-color) !important;
+    border-radius: var(--button-border-radius) !important;
+    color: var(--button-primary-color) !important;
+    font-size: var(--button-font-size) !important;
+    font-weight: var(--button-font-weight) !important;
+    letter-spacing: var(--button-letter-spacing) !important;
+    line-height: var(--button-line-height) !important;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    text-transform: var(--button-text-transform) !important;
+    transition: all 0.2s ease-in-out !important;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: var(--button-primary-bg-color-hover) !important;
+      border-color: var(--button-primary-border-color-hover) !important;
+      color: var(--button-primary-color-hover) !important;
+      text-decoration: none !important;
+    }
+  }
+}
