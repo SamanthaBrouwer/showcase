@@ -1,0 +1,41 @@
+.home {
+  @extend %spheres, %template-colors-pink;
+  --hero-height: 100vh;
+
+  @media (max-width: $screen-xs-max) {
+    --header-logo-max-width: 150px;
+  }
+
+  .content-area {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+
+  .spheres {
+    z-index: 1;
+
+    &-top-left {
+      transform: rotate(180deg);
+      top: -$spacer * 27;
+      left: -$spacer * 21;
+      width: $spacer * 50;
+
+      @media (min-width: $screen-md-min) {
+        left: -$spacer * 8;
+      }
+    }
+
+    &-bottom-right {  
+      bottom: -$spacer * 14.5;
+      right: -$spacer * 21;
+      width: $spacer * 38;
+
+      @media (min-width: $screen-sm-min) {
+        bottom: -$spacer * 18.5;
+        right: -$spacer * 27;
+        width: $spacer * 49;
+      }
+    }
+  }
+}

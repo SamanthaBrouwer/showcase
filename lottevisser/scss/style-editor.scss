@@ -1,0 +1,46 @@
+@import 'fonts';
+
+@import 'variables';
+@import 'mixins';
+
+@import 'backgrounds';
+
+@import 'blocks/blocks';
+
+// @import 'plugins/ultp';
+
+.wp-block-group {
+  &.block-hero {
+    *::after {
+      display: none;
+    }
+  }
+  
+  &.block-cards {
+    .wp-block-column {
+      h2 {
+        ~ * {
+          &:not(:last-child) {
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+$styles: (
+  'portrait',
+  'landscape',
+  'square'
+);
+
+.wp-block-image {
+  @each $dimension in $styles {
+    &.is-style-image-single-#{$dimension} {
+      .components-resizable-box__container {
+        position: static !important;
+      }
+    }
+  }
+}

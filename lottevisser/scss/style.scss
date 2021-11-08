@@ -1,0 +1,32 @@
+/*!
+ Theme Name:   Techkoningin Child
+ Theme URI:    https://techkoningin.nl/wordpress-theme
+ Description:  De Techkoningin Default Wordpress Theme - Perfectly fitted for your website
+ Author:       Samantha Brouwer
+ Author URI:   https://techkoningin.nl
+ Template:     techkoningin-base
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Text Domain:  techkoningindefault
+*/
+@import 'fonts';
+
+@import 'variables';
+@import 'mixins';
+@import 'container';
+@import 'header';
+@import 'footer';
+
+@import 'color-templates';
+@import 'home';
+
+@import 'backgrounds';
+@import 'blocks/blocks';
+
+@import 'woocommerce/woocommerce';
+
+// TODO: REMOVE THIS PART ASAP!!!!!!
+.entry-header {
+  display: none;
+}

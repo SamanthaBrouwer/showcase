@@ -1,0 +1,30 @@
+// Full width backgrounds
+// Set $full-width-backgrounds to 'true' in _variables.scss to use this function
+
+@mixin full-width-backgrounds($full-width-backgrounds: false) {
+ @if ($full-width-backgrounds) {
+  .entry-content > .wp-block-group.has-background,
+  .ld-tab-content.ld-visible .wp-block-group.has-background {
+    @include full-width-background;
+    
+    margin-top: 0;
+    padding-bottom: $spacer * 4;
+    padding-top: $spacer * 4;
+  
+    .wp-block-group.has-background {
+      padding-bottom: $spacer;
+      padding-top: $spacer;
+  
+      &::after {
+        display: none;
+      }
+    }
+  
+    + .wp-block-group.has-background {
+      margin-top: -$spacer * 2.5;
+    }
+  }
+ }
+}
+
+@include full-width-backgrounds($full-width-backgrounds);

@@ -1,0 +1,32 @@
+// Font imports go here, font-family changes are done in _variables.scss.
+@font-face {
+  font-family: 'Avenir';
+  src: url('fonts/AvenirNext-Regular-08.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('fonts/AvenirNext-Italic-05.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('fonts/AvenirNext-Bold-01.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Simplicity';
+  src: url('fonts/simplicity-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

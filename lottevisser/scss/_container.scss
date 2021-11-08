@@ -1,0 +1,29 @@
+@mixin container($container-custom: false, $container-fluid: false) {
+  @if ($container-fluid) {
+    .container {
+      max-width: 100% !important;
+    }
+  }
+
+  @if ($container-custom) {
+    .container {
+      @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+        max-width: $container-sm;
+      }
+      @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        max-width: $container-md;
+      }
+      @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+        max-width: $container-lg;
+      }
+      @media (min-width: $screen-xl-min) and (max-width: $screen-xl-max) {
+        max-width: $container-xl;
+      }
+      @media (min-width: $screen-xxl-min) {
+        max-width: $container-xxl;
+      }
+    }
+  }
+}
+
+@include container($container-custom, $container-fluid);

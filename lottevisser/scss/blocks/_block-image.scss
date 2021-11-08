@@ -1,0 +1,13 @@
+$styles: (
+  'portrait',
+  'landscape',
+  'square'
+);
+
+.wp-block-image {
+  @each $dimension in $styles {
+    &.is-style-image-single-#{$dimension} {
+      @include image-style($dimension);
+    }
+  }
+}

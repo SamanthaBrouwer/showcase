@@ -1,0 +1,37 @@
+@function url-friendly-color($color) {
+  @return '%23' + str-slice('#{$color}', 2, -1);
+}
+
+$sphere-size: $spacer * 10;
+
+$heading-styles: (  
+  'simplicity': 'transparent',
+  'simplicity-salmon': $light,
+  'simplicity-light-blue': $secondary-light,
+  'simplicity-soft-green': $accent-light,
+  'simplicity-pink': $primary,
+  'simplicity-blue': $secondary,
+  'simplicity-green': $accent,
+  'simplicity-orange': $primary-light
+);
+
+@each $name, $bgcolor in $heading-styles {
+  .is-style-heading-#{$name} {
+    font-family: 'Simplicity', #{$font-fallback};
+    font-size: 3.5rem;
+    font-weight: normal;
+    line-height: 0.8;
+
+    @if $name != 'simplicity' {
+      align-items: center;
+      background-image: url("data:image/svg+xml;utf-8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='283.46pt' height='283.46pt' viewBox='0 0 283.46 283.46' version='1.1'><g id='surface1'><path fill='#{url-friendly-color($bgcolor)}' style='stroke:none;fill-rule:nonzero;fill-opacity:1;' d='M 163.050781 44.363281 C 186.226563 41.910156 223.773438 70.800781 235.175781 90.605469 C 244.027344 105.988281 247.957031 120.546875 248.03125 137.726563 C 248.066406 145.195313 246.285156 151.835938 243.746094 157.90625 C 231.203125 187.886719 218.640625 218.296875 186.429688 233.261719 C 174.917969 238.609375 162.410156 239.058594 149.71875 239.230469 C 129.429688 239.503906 110.515625 232.535156 92.007813 226.898438 C 67.0625 219.296875 47.359375 204.8125 38.597656 175.859375 C 28.277344 141.753906 45.121094 118.085938 61.25 93.222656 C 66.871094 84.550781 98.570313 51.179688 163.050781 44.363281 '/></g></svg>");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: $sphere-size;
+      display: flex;
+      justify-content: center;
+      min-height: $sphere-size;
+      word-break: keep-all;
+    }
+  }
+}

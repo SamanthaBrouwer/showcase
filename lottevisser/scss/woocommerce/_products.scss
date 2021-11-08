@@ -1,0 +1,107 @@
+.woocommerce {
+  ul.products {
+    li.product {
+      &::before {
+        background: var(--light);
+        bottom: $spacer;
+        content: '';
+        left: $grid-gutter-width / 2;
+        position: absolute;
+        right: $grid-gutter-width / 2;
+        top: 0;
+        z-index: 0;
+      }
+
+      @media (max-width: $screen-sm-max) {
+        &:nth-child(2) {
+          @include block-shadow(var(--primary), 'top left', 'small');
+          &::after {
+            left: 0;
+          }
+        }
+
+        &:nth-child(3) {
+          @include block-shadow(var(--primary-light), 'top right', 'large');
+          &::after {
+            height: calc(100% + #{$spacer * 2});
+            right: 0;
+            width: 50vw;
+          }
+        }
+
+        &:nth-child(6) {
+          @include block-shadow(var(--primary), 'top right', 'small');
+          &::after {
+            right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+        &:nth-child(3) {
+          @include block-shadow(var(--primary), 'top left', 'small');
+          &::after {
+            left: 0;
+          }
+        }
+
+        &:nth-child(5) {
+          @include block-shadow(var(--primary-light), 'top right', 'large');
+          &::after {
+            height: calc(100% + #{$spacer * 2});
+            right: 0;
+            width: 70vw;
+          }
+        }
+
+        &:nth-child(9) {
+          @include block-shadow(var(--primary), 'top right', 'small');
+          &::after {
+            right: 0;
+          }
+        }
+      }
+
+      @media (min-width: $screen-lg-min) {
+        &:nth-child(4) {
+          @include block-shadow(var(--primary), 'top left', 'small');
+          &::after {
+            left: 0;
+          }
+        }
+
+        &:nth-child(6) {
+          @include block-shadow(var(--primary-light), 'top right', 'large');
+          &::after {
+            height: calc(100% + #{$spacer * 2});
+            right: 0;
+            width: 50vw;
+          }
+        }
+
+        &:nth-child(12) {
+          @include block-shadow(var(--primary), 'top right', 'small');
+          &::after {
+            right: 0;
+          }
+        }
+      }
+
+      & > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .woocommerce-loop-product__title,
+      .price {
+        padding: 0 $spacer;
+        margin-bottom: $spacer * 0.5;
+      }
+      
+      .button {
+        margin-left: auto;
+        margin-right: $spacer;
+      }
+    }
+  }
+}

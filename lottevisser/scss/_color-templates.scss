@@ -1,0 +1,276 @@
+// Placeholder spheres to extend both here and on home
+%spheres {
+  .spheres {
+    position: absolute;
+  }
+
+  .sphere-fill {
+    fill: var(--sphere-fill);
+  }
+}
+
+%template-colors-pink {
+  --sphere-fill: var(--primary);
+  --sphere-heading-fill-left: var(--primary-light);
+  --sphere-heading-fill-right: var(--primary);
+  --sphere-heading-fill-bottom: var(--light);
+  --sphere-footer-fill-top: var(--light);
+  --sphere-footer-fill-bottom: var(--primary-light);
+  --footer-divider-color: var(--primary-light);
+}
+
+%template-colors-blue {
+  --sphere-fill: var(--secondary-light);
+  --sphere-heading-fill-left: var(--light);
+  --sphere-heading-fill-right: var(--secondary-light);
+  --sphere-heading-fill-bottom: var(--light);
+  --sphere-footer-fill-top: var(--light);
+  --sphere-footer-fill-bottom: var(--secondary-light);
+  --footer-divider-color: var(--secondary);
+}
+
+.page-template {
+  // Set logo height
+  --template-header-logo-max-width: var(--header-logo-max-width);
+  @media (min-width: $screen-md-min) {
+    --template-header-logo-max-width: calc(var(--header-logo-max-width) - 80px);
+  }
+
+  // Define template colors
+  &-template-pink,
+  &-template-pink-open {
+    @extend %template-colors-pink;
+  }
+  
+  &-template-blue {
+    @extend %template-colors-blue;
+  }
+
+  &-template-pink,
+  &-template-blue {
+    // Show smaller logo on template pages and different alignment
+    .site-header {
+      .navbar {
+        &-brand {
+          max-width: var(--template-header-logo-max-width);
+
+          // @media (min-width: $screen-md-min) {
+          //   margin-left: calc(42vw - var(--template-header-logo-max-width));
+          // }
+        }
+      }
+    }
+  }
+
+  &-template-pink-open {
+    // Open logo is displayed differently
+    .site-header {
+      .navbar {
+        &-brand {
+          margin-left: 0;
+          
+          img {
+            @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max) {
+              min-width: $spacer * 12;
+            }
+            @media (min-width: $screen-xl-min) {
+              min-width: $spacer * 14;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .site {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  &:not(.page-template-template-home) {
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+
+      .block-lv-page {
+        margin-bottom: 0;
+
+        > .wp-block-group__inner-container > .wp-block-columns {
+          margin-bottom: 0;
+
+          // Set padding-bottom to create space for footer
+          // Set padding-top on second col to create gap between header
+          > .wp-block-column:last-child {
+            padding: #{$spacer * 4} #{$spacer * 2} #{$spacer * 3};
+            z-index: 20;
+
+            @media (min-width: $screen-sm-min) {
+              padding: #{$spacer * 7} #{$spacer * 2} #{$spacer * 8} 0;
+            }
+
+            > * {
+              margin-bottom: $spacer * 2.5;
+              max-width: 600px;
+
+              &:not(h2:first-child) {
+                padding-left: $spacer * 2;
+
+                @media (min-width: $screen-sm-min) {
+                  padding-left: $spacer * 4;
+                }
+              }
+            }
+
+            > h2:first-child {
+              align-items: center;
+              display: flex;
+              min-height: $spacer * 12;
+            }
+          }
+
+          // Columns inside column don't have to be displayed underneath each other on mobile
+          @media (max-width: $screen-xs-max) {
+            .wp-block-columns .wp-block-column {
+              flex-basis: 50% !important
+            }
+          }
+        }
+      }
+    }
+
+    // Display and color the spheres
+    @extend %spheres;
+
+    .spheres {
+      &-top-center {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        left: -$spacer * 11;
+        max-width: $spacer * 40;
+        top: 37vh;
+        z-index: 0;
+
+        @media (min-width: $screen-sm-min) {
+          left: calc(50% - #{$spacer * 15});
+          top: -$spacer * 6;
+          z-index: auto;
+        }
+        
+        @media (min-width: $screen-md-min) {
+          top: -$spacer * 10;
+        }
+
+        .sphere {
+          max-width: $spacer * 18;
+          position: relative;
+          z-index: 15;
+
+          @media (min-width: $screen-md-min) {
+            max-width: $spacer * 20;
+          }
+
+          &-left {
+            flex-basis: 50%;
+            margin-top: -$spacer * 5;
+          }
+
+          &-right {
+            flex-basis: 50%;
+            margin-bottom: -$spacer * 5;
+            transform: rotate(240deg);
+          }
+
+          &-bottom {
+            flex-basis: 100%;
+            margin-left: -$spacer * 4;
+            margin-top: -$spacer * 3;
+          }
+
+          $positions: ('left', 'right', 'bottom');
+
+          @each $position in $positions {
+            &-#{$position} {
+              .sphere-fill {
+                fill: var(--sphere-heading-fill-#{$position});
+              }
+            }
+          }
+        }
+      }
+
+      &-bottom-left {
+        height: 40vh;
+        left: -$spacer * 23;
+        overflow: hidden;
+        top: 10vh;
+        width: $spacer * 40;
+
+        @media (min-width: $screen-sm-min) {
+          bottom: -$spacer * 23;
+          height: auto;
+          position: fixed;
+          top: auto;
+          width: $spacer * 45;
+        }
+      }
+
+      &-bottom-right {
+        bottom: -$spacer * 7;
+        right: -$spacer * 8;
+        display: flex;
+        flex-direction: column;      
+
+        .sphere {
+          display: flex;
+          max-width: $spacer * 20;
+
+          &-top {
+            transform: rotate(220deg);
+            margin-bottom: -$spacer * 7.5;
+            margin-left: $spacer * 7;
+            margin-right: -$spacer * 4;
+          }
+
+          &-bottom {
+            transform: rotate(180deg);
+            margin-right: 0;
+          }
+
+          $positions: ('top', 'bottom');
+
+          @each $position in $positions {
+            &-#{$position} {
+              .sphere-fill {
+                fill: var(--sphere-footer-fill-#{$position});
+              }
+            }
+          }
+        }
+      }
+
+      .sphere {
+        svg {
+          height: auto;
+          max-width: 100%;
+        }
+      }
+    }
+
+    // Positioning of image so when text is longer then page height the image doesn't show white gaps
+    @media (min-width: $screen-sm-min) {
+      .wp-block-cover {
+        img.wp-block-cover__image-background {
+          position: fixed;
+          width: 50vw;
+        }
+      }
+    }
+
+
+    // Don't show the edit button on page bottom to avoid gap (only visible to logged in users)
+    .entry-footer {
+      display: none;
+    }
+  }
+}
